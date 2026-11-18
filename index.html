@@ -1,706 +1,1536 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://placehold.co; connect-src 'self'; base-uri 'self'; form-action 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formsubmit.co; base-uri 'self'; form-action 'self' https://formsubmit.co mailto:">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusData AI | Ethically Sourced Foundation Training Datasets</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Green Glory Technologies | Custom Fabrication & Manufacturing AI Training Data</title>
+    <meta name="description" content="On-demand manufacturing and fabrication datasets for AI model training. Built to order, NDA-governed, and labelled by mechanical and manufacturing engineers. Enquiries: sales@greenglorytechnologies.com">
+
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
-                    colors: {
-                        dark: {
-                            900: '#0a0b0e',
-                            800: '#12141c',
-                            700: '#1a1d29',
-                            600: '#262a3b',
-                        },
-                        brand: {
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                            400: '#818cf8',
-                            accent: '#10b981'
-                        }
-                    },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        ink: '#0B1215',
+                        slateBody: '#475569',
+                        vellum: '#F8FAFC',
+                        hairline: '#E2E8F0',
+                        forest: {
+                            DEFAULT: '#0A4D3C',
+                            hover: '#06372B',
+                            tint: '#F0F7F4',
+                            border: '#C6E0D5',
+                        }
                     }
                 }
             }
         }
     </script>
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-card {
-            background: rgba(26, 29, 41, 0.7);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        /* Precision Swiss-Industrial Typographic & Hairline Discipline */
+        body {
+            background-color: #FFFFFF;
+            color: #0B1215;
+            font-feature-settings: "cv02", "cv03", "cv04", "cv11";
         }
-        .glow-effect {
-            box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.25);
+
+        /* Subtle Engineering Drafting Corner Crosshairs for Specimen Plate */
+        .specimen-frame {
+            position: relative;
+        }
+        .specimen-frame::before,
+        .specimen-frame::after {
+            content: '+';
+            position: absolute;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            line-height: 1;
+            color: #94A3B8;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .specimen-frame::before {
+            top: -6px;
+            left: -4px;
+        }
+        .specimen-frame::after {
+            bottom: -6px;
+            right: -4px;
+        }
+
+        /* Ultra-subtle 20px drafting dot matrix strictly inside the CAD specimen canvas */
+        .specimen-canvas {
+            background-color: #FFFFFF;
+            background-image: radial-gradient(#CBD5E1 0.85px, transparent 0.85px);
+            background-size: 16px 16px;
+        }
+
+        /* Clean custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8FAFC;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
         }
     </style>
 </head>
-<body class="bg-dark-900 text-gray-100 min-h-screen selection:bg-brand-500 selection:text-white">
+<body class="font-sans antialiased selection:bg-forest selection:text-white overflow-x-hidden">
 
-    <!-- Top Notification Bar -->
-    <div class="bg-gradient-to-r from-brand-600 via-indigo-600 to-emerald-600 text-white text-xs py-2 px-4 text-center font-medium">
-        <i class="fa-solid fa-shield-halved mr-2"></i> 100% Provenance Verified & PII Sanitized Datasets for Sora, Veo & Embodied AI Labs. 
-        <a href="#marketplace" class="underline ml-1 font-semibold hover:text-indigo-200">Explore Marketplace &rarr;</a>
+    <!-- 1. TOP TECHNICAL MICRO-BAR -->
+    <div class="bg-vellum border-b border-hairline text-[11px] font-mono tracking-wider text-slateBody">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center space-x-2.5">
+                <span class="w-1.5 h-1.5 bg-forest inline-block shrink-0"></span>
+                <span class="font-semibold text-ink">GREEN GLORY TECHNOLOGIES — ON-DEMAND DATA PROVIDER</span>
+            </div>
+            <div class="flex items-center space-x-2.5 text-slateBody">
+                <span>SHEET 1 OF 1</span>
+                <span class="text-slate-300">·</span>
+                <span class="text-ink font-medium">REV. C</span>
+                <span class="text-slate-300">·</span>
+                <span class="text-forest font-semibold">FOR AI MODEL TRAINING</span>
+                <span class="hidden md:inline text-slate-300">·</span>
+                <span class="hidden md:inline">SCALE: TO YOUR BRIEF</span>
+            </div>
+        </div>
     </div>
 
-    <!-- Navigation Header -->
-    <header class="sticky top-0 z-50 glass-card border-b border-gray-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center shadow-lg shadow-brand-600/30">
-                    <i class="fa-solid fa-cube text-white text-lg"></i>
-                </div>
-                <div>
-                    <span class="text-xl font-bold tracking-tight text-white">NEXUS<span class="text-brand-400">DATA</span></span>
-                    <span class="block text-[10px] text-emerald-400 tracking-widest font-semibold uppercase">AI Training Pipeline</span>
+    <!-- STICKY TRANSLUCENT EXECUTIVE HEADER -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-hairline">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-18 py-3.5 gap-4">
+                <!-- Bespoke Geometric "GG" Precision Monogram + Wordmark -->
+                <a href="#top" class="flex items-center space-x-3 group focus:outline-none shrink-0">
+                    <div class="w-10 h-10 bg-forest flex items-center justify-center relative shrink-0 transition-colors group-hover:bg-forest-hover">
+                        <svg width="26" height="26" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <!-- Precision Outer Register Frame -->
+                            <rect x="1.5" y="1.5" width="25" height="25" stroke="#A7F3D0" stroke-opacity="0.45" stroke-width="0.8"/>
+                            <!-- Left Geometric G -->
+                            <path d="M13 6.5H6.5V21.5H13V14.5H10" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square"/>
+                            <!-- Right Geometric G -->
+                            <path d="M21.5 9.5H15.5V18.5H21.5V14.5H18.5" stroke="#A7F3D0" stroke-width="2" stroke-linecap="square"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="text-sm sm:text-[15px] font-bold tracking-[-0.02em] text-ink leading-none">
+                            GREEN GLORY TECHNOLOGIES
+                        </div>
+                        <div class="text-[10px] font-mono uppercase tracking-widest text-slateBody mt-1">
+                            CUSTOM INDUSTRIAL AI DATA
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-7 text-[13px] font-medium text-slateBody">
+                    <a href="#domains" class="hover:text-ink transition py-1.5">Domains</a>
+                    <a href="#how-it-works" class="hover:text-ink transition py-1.5">How It Works</a>
+                    <a href="#specifications" class="hover:text-ink transition py-1.5">Specifications</a>
+                    <a href="#contact" class="hover:text-ink transition py-1.5">Contact</a>
+                </nav>
+
+                <!-- Direct Clickable Email + Primary CTA + Mobile Menu Button -->
+                <div class="flex items-center space-x-3">
+                    <a href="mailto:sales@greenglorytechnologies.com" class="hidden md:inline-flex items-center space-x-1.5 text-xs font-mono text-slateBody hover:text-forest transition py-2 px-2.5 border border-transparent hover:border-hairline">
+                        <svg class="w-3.5 h-3.5 text-forest shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="square" stroke-width="1.75" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        <span>sales@greenglorytechnologies.com</span>
+                    </a>
+
+                    <a href="#specifications" class="inline-flex items-center justify-center px-4 sm:px-5 py-2.5 bg-forest hover:bg-forest-hover text-white text-xs sm:text-[13px] font-medium tracking-tight transition shrink-0">
+                        Start With a Brief
+                    </a>
+
+                    <button id="mobile-menu-btn" type="button" aria-label="Toggle Navigation" class="lg:hidden p-2.5 border border-hairline text-ink hover:bg-vellum transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="icon-menu-open" stroke-linecap="square" stroke-width="1.75" d="M4 7h16M4 12h16M4 17h16"/>
+                            <path id="icon-menu-close" class="hidden" stroke-linecap="square" stroke-width="1.75" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
+        </div>
 
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
-                <a href="#marketplace" class="hover:text-white transition">Dataset Marketplace</a>
-                <a href="#preview-lab" class="hover:text-white transition">Interactive Preview</a>
-                <a href="#creators" class="hover:text-white transition">For Creators & Collectors</a>
-                <a href="#enterprise" class="hover:text-white transition">Enterprise & Custom</a>
-            </nav>
-
-            <div class="flex items-center space-x-4">
-                <button onclick="openModal('custom-request')" class="hidden sm:inline-flex items-center px-4 py-2 rounded-xl text-sm font-semibold text-gray-300 hover:text-white bg-dark-700 hover:bg-dark-600 border border-gray-700 transition">
-                    <i class="fa-solid fa-file-contract mr-2 text-brand-400"></i> Request License
-                </button>
-                <button onclick="openModal('upload-modal')" class="inline-flex items-center px-4 py-2 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-400 shadow-lg shadow-brand-600/30 transition transform hover:-translate-y-0.5">
-                    <i class="fa-solid fa-cloud-arrow-up mr-2"></i> Submit Data
-                </button>
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-drawer" class="hidden lg:hidden bg-white border-t border-hairline px-4 pt-3 pb-5 space-y-1">
+            <a href="#domains" class="mobile-nav-item block px-3 py-2.5 text-sm font-medium text-ink hover:bg-vellum">Domains</a>
+            <a href="#how-it-works" class="mobile-nav-item block px-3 py-2.5 text-sm font-medium text-ink hover:bg-vellum">How It Works</a>
+            <a href="#specifications" class="mobile-nav-item block px-3 py-2.5 text-sm font-medium text-ink hover:bg-vellum">Specifications &amp; Brief</a>
+            <a href="#contact" class="mobile-nav-item block px-3 py-2.5 text-sm font-medium text-ink hover:bg-vellum">Contact</a>
+            <div class="pt-3 mt-2 border-t border-hairline px-3">
+                <a href="mailto:sales@greenglorytechnologies.com" class="inline-flex items-center space-x-2 text-xs font-mono text-forest font-medium">
+                    <span>sales@greenglorytechnologies.com</span>
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative pt-20 pb-28 overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-600/15 via-dark-900 to-dark-950 pointer-events-none"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-brand-600/20 text-brand-400 border border-brand-500/30">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-2"></span>
-                        Next-Gen 2026 AI Training Data Platform
-                    </div>
-                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                        Powering Frontier AI With <span class="bg-gradient-to-r from-brand-400 via-indigo-300 to-emerald-400 bg-clip-text text-transparent">Verified High-Provenance</span> Datasets.
-                    </h1>
-                    <p class="text-lg text-gray-300 max-w-2xl mx-auto lg:mx-0">
-                        Skip mass web scraping liabilities. Access enterprise-grade uncompressed video libraries, precise masking tape physics state-changes, egocentric robotics interactions, and fully sanitized multimodal datasets.
-                    </p>
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
-                        <a href="#marketplace" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-white bg-brand-600 hover:bg-brand-500 shadow-xl shadow-brand-600/30 transition">
-                            <i class="fa-solid fa-store mr-2"></i> Browse Dataset Catalog
-                        </a>
-                        <button onclick="openModal('custom-request')" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-gray-200 bg-dark-700 hover:bg-dark-600 border border-gray-700 transition">
-                            <i class="fa-solid fa-headset mr-2 text-emerald-400"></i> Speak to Data Procurement
-                        </button>
-                    </div>
+    <!-- MAIN CONTENT -->
+    <main id="top">
 
-                    <!-- Trust Stats -->
-                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-gray-800 text-center lg:text-left">
-                        <div>
-                            <div class="text-2xl font-bold text-white">450+ TB</div>
-                            <div class="text-xs text-gray-400 mt-1">RAW 4K/ProRes Video</div>
-                        </div>
-                        <div>
-                            <div class="text-2xl font-bold text-emerald-400">100%</div>
-                            <div class="text-xs text-gray-400 mt-1">PII & Face Scrubbed</div>
-                        </div>
-                        <div>
-                            <div class="text-2xl font-bold text-white">Chain-of-Custody</div>
-                            <div class="text-xs text-gray-400 mt-1">Signed Creator Rights</div>
-                        </div>
-                    </div>
-                </div>
+        <!-- 2. HERO SECTION (Balanced 12-Column Editorial + Interactive Engineering Specimen Plate, Zero Vertical Gap) -->
+        <section class="border-b border-hairline bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+                <div class="grid lg:grid-cols-12 items-stretch gap-8 lg:gap-12">
 
-                <!-- Hero Interactive Visual Card -->
-                <div class="lg:col-span-5">
-                    <div class="glass-card rounded-2xl p-6 glow-effect border border-gray-700 relative">
-                        <div class="flex items-center justify-between pb-4 border-b border-gray-800">
-                            <div class="flex items-center space-x-2">
-                                <span class="w-3 h-3 rounded-full bg-red-500"></span>
-                                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-                            </div>
-                            <span class="text-xs font-mono text-gray-400">dataset_live_inspect.json</span>
-                        </div>
-                        
-                        <div class="py-4 space-y-4 font-mono text-xs">
-                            <div class="bg-dark-900 p-3 rounded-lg border border-gray-800">
-                                <span class="text-purple-400">dataset_id:</span> <span class="text-emerald-300">"nx_tape_peel_4k_09"</span><br>
-                                <span class="text-purple-400">modality:</span> <span class="text-yellow-300">"Egocentric Video + Audio Foley"</span><br>
-                                <span class="text-purple-400">resolution:</span> <span class="text-white">"3840x2160 @ 60fps (ProRes RAW)"</span><br>
-                                <span class="text-purple-400">compliance:</span> <span class="text-emerald-400">"EgoBlur & PII Scrubbed (GDPR Clean)"</span>
+                    <!-- LEFT COLUMN (7 COLS): Editorial Authority + Flush Bottom "At A Glance" Ledger -->
+                    <div class="lg:col-span-7 flex flex-col justify-between">
+                        <div class="space-y-6">
+                            <!-- Eyebrow -->
+                            <div class="inline-flex items-center space-x-2 px-3 py-1 bg-forest-tint border border-forest-border text-forest text-[11px] font-mono font-medium uppercase tracking-wider">
+                                <span class="w-1.5 h-1.5 bg-forest inline-block"></span>
+                                <span>CUSTOM DATA BUILT TO ORDER · NDA-FIRST</span>
                             </div>
 
-                            <div class="relative rounded-xl overflow-hidden border border-gray-700 bg-black aspect-video flex items-center justify-center group cursor-pointer" onclick="switchPreviewSample('tape')">
-                                <div class="absolute inset-0 bg-cover bg-center opacity-70 group-hover:scale-105 transition duration-500" style="background-image: url('https://placehold.co/600x340/1a1d29/818cf8?text=Masking+Tape+Peeling+Physics+Feed')"></div>
-                                <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
-                                <div class="absolute z-10 w-12 h-12 rounded-full bg-brand-600/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
-                                    <i class="fa-solid fa-play text-white ml-0.5"></i>
+                            <!-- H1 Display Headline -->
+                            <h1 class="text-3xl sm:text-4xl lg:text-[46px] font-bold text-ink tracking-[-0.03em] leading-[1.1]">
+                                The shop floor is a dataset. <span class="text-forest">We build yours to order.</span>
+                            </h1>
+
+                            <!-- Lead Body Copy -->
+                            <p class="text-base sm:text-[17px] text-slateBody leading-[1.65] max-w-2xl">
+                                Unique fabrication and manufacturing data for AI model training — prepared custom, based on your company's requirement, not pulled off a shelf. You specify the part, process, defect or document you need modelled. We source, label and quality-check it with engineers who have actually run the work.
+                            </p>
+
+                            <!-- Primary & Secondary Action Buttons -->
+                            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+                                <a href="#specifications" class="inline-flex items-center justify-center px-6 py-3.5 bg-forest hover:bg-forest-hover text-white text-sm font-medium tracking-tight transition">
+                                    Start With a Brief &rarr;
+                                </a>
+                                <a href="#domains" class="inline-flex items-center justify-center px-6 py-3.5 bg-white hover:bg-vellum text-ink border border-hairline hover:border-slate-300 text-sm font-medium tracking-tight transition">
+                                    Explore Four Domains
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Clean 3-Column Hairline "At A Glance" Ledger (Aligned Flush with Bottom of Right Column) -->
+                        <div class="mt-10 lg:mt-12 pt-6 border-t border-hairline">
+                            <div class="flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-slateBody mb-3">
+                                <span>AT A GLANCE</span>
+                                <span>SCALE: TO YOUR BRIEF</span>
+                            </div>
+                            <div class="grid sm:grid-cols-3 border border-hairline divide-y sm:divide-y-0 sm:divide-x divide-hairline bg-vellum">
+                                <div class="p-4">
+                                    <div class="text-[11px] font-mono font-semibold text-forest uppercase tracking-wider">FOR</div>
+                                    <p class="text-[13px] font-medium text-ink mt-1.5 leading-snug">
+                                        AI companies training vision, inspection &amp; robotics models
+                                    </p>
                                 </div>
-                                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between z-10 text-[11px] bg-dark-900/80 backdrop-blur px-3 py-1.5 rounded-lg border border-gray-700">
-                                    <span class="text-gray-300">Active Stream: Tape Physics #14</span>
-                                    <span class="text-emerald-400 font-bold">LIVE METRIC</span>
+                                <div class="p-4">
+                                    <div class="text-[11px] font-mono font-semibold text-forest uppercase tracking-wider">HOW</div>
+                                    <p class="text-[13px] font-medium text-ink mt-1.5 leading-snug">
+                                        Brief &rarr; sample under NDA &rarr; licensed delivery
+                                    </p>
+                                </div>
+                                <div class="p-4">
+                                    <div class="text-[11px] font-mono font-semibold text-forest uppercase tracking-wider">BY</div>
+                                    <p class="text-[13px] font-medium text-ink mt-1.5 leading-snug">
+                                        Manufacturing &amp; mechanical engineers
+                                    </p>
                                 </div>
                             </div>
-
-                            <div class="flex items-center justify-between text-[11px] text-gray-400 pt-2">
-                                <span>Status: Ready for Model Ingestion</span>
-                                <button onclick="window.location.href='#preview-lab'" class="text-brand-400 hover:underline">Open Inspector &rarr;</button>
-                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Marketplace / Dataset Catalog Section -->
-    <section id="marketplace" class="py-20 bg-dark-800/50 border-t border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white">Enterprise Dataset Marketplace</h2>
-                <p class="text-gray-400">
-                    Rigidly curated, ethical training datasets for text-to-video foundation models, robotics manipulation, and multimodal spatial reasoning.
-                </p>
-                <!-- Filter Tabs -->
-                <div class="flex flex-wrap items-center justify-center gap-2 pt-4">
-                    <button onclick="filterDatasets('all')" class="filter-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-brand-600 text-white transition">All Datasets</button>
-                    <button onclick="filterDatasets('video')" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-dark-700 text-gray-300 hover:text-white transition">Video & Physics</button>
-                    <button onclick="filterDatasets('robotics')" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-dark-700 text-gray-300 hover:text-white transition">Robotics & POV</button>
-                    <button onclick="filterDatasets('multimodal')" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-dark-700 text-gray-300 hover:text-white transition">Audio-Visual Foley</button>
-                </div>
-            </div>
+                    <!-- RIGHT COLUMN (5 COLS): Interactive CAD & Annotation Specimen Plate -->
+                    <div class="lg:col-span-5 flex flex-col">
+                        <div class="h-full bg-white border border-hairline flex flex-col justify-between specimen-frame">
 
-            <!-- Grid of Datasets -->
-            <div id="dataset-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Dataset Card 1 -->
-                <div class="glass-card rounded-2xl overflow-hidden border border-gray-700/80 hover:border-brand-500/50 transition duration-300 flex flex-col" data-category="video">
-                    <div class="relative h-48 bg-dark-900 overflow-hidden">
-                        <img src="https://placehold.co/600x350/1a1d29/6366f1?text=Masking+Tape+Peeling+4K" alt="Masking Tape Peeling" class="w-full h-full object-cover opacity-80">
-                        <div class="absolute top-3 right-3 bg-brand-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg backdrop-blur">
-                            RAW ProRes
-                        </div>
-                        <div class="absolute bottom-3 left-3 bg-dark-900/80 text-emerald-400 text-[10px] font-semibold px-2 py-0.5 rounded-md border border-gray-700">
-                            <i class="fa-solid fa-check-circle mr-1"></i> PII Scrubbed
+                            <!-- Top Specimen Bar + Raw vs. Engineer-Labelled Toggle -->
+                            <div class="border-b border-hairline bg-vellum">
+                                <div class="px-4 py-2.5 border-b border-hairline flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono">
+                                    <span class="font-semibold text-ink tracking-wider">FIG. 01 — ENGINEERING SPECIMEN</span>
+                                    <!-- Interactive Toggle Switch: Raw Shop Artifact vs Engineer-Labelled Spec -->
+                                    <div class="inline-flex border border-hairline bg-white p-0.5 text-[10px] font-mono" role="group" aria-label="Specimen Annotation Layer Toggle">
+                                        <button type="button" id="toggle-raw" onclick="setAnnotationMode('raw')" class="px-2 py-1 text-slateBody hover:text-ink transition cursor-pointer">
+                                            Raw Shop Artifact
+                                        </button>
+                                        <button type="button" id="toggle-labelled" onclick="setAnnotationMode('labelled')" class="px-2 py-1 bg-forest text-white font-medium transition cursor-pointer">
+                                            Engineer-Labelled Spec
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- 4 Domain Switcher Tabs -->
+                                <div class="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-hairline text-[11px] font-mono" role="tablist" aria-label="Specimen Domain Tabs">
+                                    <button type="button" id="spec-tab-castings" onclick="selectSpecimenDomain('castings')" class="spec-tab py-2.5 px-2 text-center bg-vellum text-slateBody hover:text-ink transition cursor-pointer">
+                                        01 Castings
+                                    </button>
+                                    <button type="button" id="spec-tab-welding" onclick="selectSpecimenDomain('welding')" class="spec-tab py-2.5 px-2 text-center bg-white text-forest font-semibold border-b-2 border-forest transition cursor-pointer">
+                                        02 Welding [Core]
+                                    </button>
+                                    <button type="button" id="spec-tab-cad" onclick="selectSpecimenDomain('cad')" class="spec-tab py-2.5 px-2 text-center bg-vellum text-slateBody hover:text-ink transition cursor-pointer">
+                                        03 CAD / GD&amp;T
+                                    </button>
+                                    <button type="button" id="spec-tab-machining" onclick="selectSpecimenDomain('machining')" class="spec-tab py-2.5 px-2 text-center bg-vellum text-slateBody hover:text-ink transition cursor-pointer">
+                                        04 Machining
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Interactive Technical SVG Schematic Canvas -->
+                            <div class="flex-1 p-4 sm:p-5 flex flex-col justify-between specimen-canvas">
+                                <div class="flex items-center justify-between text-[10px] font-mono text-slateBody">
+                                    <span id="specimen-caption">DWG-02 // FILLET WELD T-JOINT CROSS-SECTION</span>
+                                    <span id="specimen-standard" class="text-forest font-semibold">ISO 5817-B</span>
+                                </div>
+
+                                <div class="flex-1 flex items-center justify-center my-2">
+                                    <!-- SVG 02: WELDING [CORE] -->
+                                    <svg id="specimen-svg-welding" viewBox="0 0 420 225" class="w-full h-auto max-h-[225px]" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fillet Weld T-Joint Cross-Section">
+                                        <!-- Base Geometry (Always Visible) -->
+                                        <rect x="132" y="20" width="28" height="142" fill="#F1F5F9" stroke="#0B1215" stroke-width="1.3"/>
+                                        <line x1="132" y1="42" x2="160" y2="28" stroke="#CBD5E1" stroke-width="1"/>
+                                        <line x1="132" y1="68" x2="160" y2="54" stroke="#CBD5E1" stroke-width="1"/>
+                                        <line x1="132" y1="94" x2="160" y2="80" stroke="#CBD5E1" stroke-width="1"/>
+                                        <line x1="132" y1="120" x2="160" y2="106" stroke="#CBD5E1" stroke-width="1"/>
+
+                                        <rect x="44" y="162" width="265" height="26" fill="#E2E8F0" stroke="#0B1215" stroke-width="1.3"/>
+                                        <line x1="65" y1="188" x2="88" y2="162" stroke="#94A3B8" stroke-width="1"/>
+                                        <line x1="105" y1="188" x2="128" y2="162" stroke="#94A3B8" stroke-width="1"/>
+                                        <line x1="145" y1="188" x2="168" y2="162" stroke="#94A3B8" stroke-width="1"/>
+                                        <line x1="185" y1="188" x2="208" y2="162" stroke="#94A3B8" stroke-width="1"/>
+                                        <line x1="225" y1="188" x2="248" y2="162" stroke="#94A3B8" stroke-width="1"/>
+
+                                        <!-- Fillet Weld Bead -->
+                                        <path d="M 160 116 Q 182 140 208 162 L 160 162 Z" fill="#0A4D3C" fill-opacity="0.18" stroke="#0B1215" stroke-width="1.5"/>
+                                        <path d="M 164 128 Q 175 139 182 159" fill="none" stroke="#475569" stroke-width="0.9"/>
+                                        <path d="M 168 141 Q 179 149 193 160" fill="none" stroke="#475569" stroke-width="0.9"/>
+
+                                        <!-- Engineer-Labelled Spec Overlay Group -->
+                                        <g class="annotation-overlay">
+                                            <!-- Bounding Box around Weld Bead -->
+                                            <rect x="154" y="110" width="60" height="58" fill="none" stroke="#0A4D3C" stroke-width="1.4" stroke-dasharray="3 2"/>
+                                            <rect x="154" y="95" width="108" height="15" fill="#0A4D3C"/>
+                                            <text x="158" y="105.5" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">CLASS: FILLET_WELD</text>
+
+                                            <!-- Toe Undercut Defect Leader -->
+                                            <circle cx="160" cy="115" r="4.5" fill="none" stroke="#B91C1C" stroke-width="1.5"/>
+                                            <polyline points="155,115 114,76 16,76" fill="none" stroke="#B91C1C" stroke-width="1.1"/>
+                                            <rect x="14" y="58" width="106" height="16" fill="#FEF2F2" stroke="#B91C1C" stroke-width="1"/>
+                                            <text x="18" y="69" fill="#991B1B" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">TOE_UNDERCUT: 0.22mm</text>
+
+                                            <!-- Throat & Leg Callout Leader -->
+                                            <polyline points="186,140 238,84 402,84" fill="none" stroke="#0B1215" stroke-width="1.1"/>
+                                            <polygon points="186,140 193,136 189,132" fill="#0B1215"/>
+                                            <polygon points="274,84 274,71 287,84" fill="none" stroke="#0B1215" stroke-width="1.2"/>
+                                            <text x="252" y="80" fill="#0B1215" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600">6mm</text>
+                                            <text x="293" y="80" fill="#0B1215" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">GMAW-S</text>
+                                            <text x="246" y="97" fill="#475569" font-family="JetBrains Mono, monospace" font-size="7.8">THROAT a=4.2mm · FIT-UP 0.4mm</text>
+
+                                            <!-- Datum Line -->
+                                            <line x1="44" y1="195" x2="44" y2="215" stroke="#94A3B8" stroke-width="1"/>
+                                            <line x1="309" y1="195" x2="309" y2="215" stroke="#94A3B8" stroke-width="1"/>
+                                            <line x1="44" y1="208" x2="309" y2="208" stroke="#94A3B8" stroke-width="1"/>
+                                            <rect x="118" y="200" width="118" height="15" fill="#FFFFFF"/>
+                                            <text x="124" y="210.5" fill="#0B1215" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">DATUM A // QA_PASS</text>
+                                        </g>
+                                    </svg>
+
+                                    <!-- SVG 01: CASTINGS & FOUNDRY -->
+                                    <svg id="specimen-svg-castings" viewBox="0 0 420 225" class="w-full h-auto max-h-[225px] hidden" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Casting Cross Section Specimen">
+                                        <!-- Cast Housing Profile -->
+                                        <path d="M44 40 H164 L180 72 H240 L256 40 H376 V182 H284 V136 H136 V182 H44 Z" fill="#F1F5F9" stroke="#0B1215" stroke-width="1.3"/>
+                                        <!-- Physical Internal Porosity Cavities -->
+                                        <path d="M90 94 Q106 82 118 96 Q108 112 90 94 Z" fill="#E2E8F0" stroke="#475569" stroke-width="1.2"/>
+                                        <circle cx="322" cy="96" r="3" fill="#475569"/>
+                                        <circle cx="334" cy="104" r="2.5" fill="#475569"/>
+                                        <circle cx="319" cy="111" r="2.8" fill="#475569"/>
+
+                                        <!-- Engineer-Labelled Spec Overlay Group -->
+                                        <g class="annotation-overlay">
+                                            <rect x="82" y="80" width="44" height="36" fill="none" stroke="#0A4D3C" stroke-width="1.4" stroke-dasharray="3 2"/>
+                                            <rect x="82" y="65" width="118" height="15" fill="#0A4D3C"/>
+                                            <text x="86" y="75.5" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">SHRINKAGE_POROSITY</text>
+
+                                            <rect x="309" y="87" width="35" height="32" fill="none" stroke="#B91C1C" stroke-width="1.3" stroke-dasharray="3 2"/>
+                                            <rect x="276" y="123" width="90" height="15" fill="#FEF2F2" stroke="#B91C1C" stroke-width="1"/>
+                                            <text x="281" y="133.5" fill="#991B1B" font-family="JetBrains Mono, monospace" font-size="7.8" font-weight="600">GAS_INCLUSION</text>
+
+                                            <polyline points="210,72 210,26 350,26" fill="none" stroke="#0B1215" stroke-width="1.1"/>
+                                            <circle cx="210" cy="72" r="3" fill="#0A4D3C"/>
+                                            <text x="218" y="22" fill="#0A4D3C" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">MELT: 1420°C · DUCTILE IRON</text>
+
+                                            <line x1="44" y1="204" x2="376" y2="204" stroke="#94A3B8" stroke-width="1"/>
+                                            <rect x="122" y="196" width="176" height="15" fill="#FFFFFF"/>
+                                            <text x="128" y="206.5" fill="#0B1215" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">MODALITY: NDT X-RAY + VISUAL</text>
+                                        </g>
+                                    </svg>
+
+                                    <!-- SVG 03: DESIGN, CAD & DRAWINGS -->
+                                    <svg id="specimen-svg-cad" viewBox="0 0 420 225" class="w-full h-auto max-h-[225px] hidden" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Engineering Drawing GD&T Specimen">
+                                        <!-- Orthographic Part View -->
+                                        <rect x="38" y="34" width="122" height="140" fill="#FFFFFF" stroke="#0B1215" stroke-width="1.3"/>
+                                        <circle cx="99" cy="104" r="26" fill="#F8FAFC" stroke="#0B1215" stroke-width="1.3"/>
+                                        <line x1="60" y1="104" x2="138" y2="104" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4 2"/>
+                                        <line x1="99" y1="65" x2="99" y2="143" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4 2"/>
+
+                                        <!-- Engineer-Labelled Spec Overlay Group -->
+                                        <g class="annotation-overlay">
+                                            <rect x="66" y="71" width="66" height="66" fill="none" stroke="#0A4D3C" stroke-width="1.4" stroke-dasharray="3 2"/>
+                                            <polyline points="118,86 164,50 190,50" fill="none" stroke="#0A4D3C" stroke-width="1.2"/>
+
+                                            <!-- ASME Y14.5 Feature Control Frame -->
+                                            <rect x="190" y="36" width="192" height="25" fill="#F0F7F4" stroke="#0A4D3C" stroke-width="1.3"/>
+                                            <line x1="218" y1="36" x2="218" y2="61" stroke="#0A4D3C" stroke-width="1.1"/>
+                                            <line x1="282" y1="36" x2="282" y2="61" stroke="#0A4D3C" stroke-width="1.1"/>
+                                            <line x1="315" y1="36" x2="315" y2="61" stroke="#0A4D3C" stroke-width="1.1"/>
+                                            <line x1="348" y1="36" x2="348" y2="61" stroke="#0A4D3C" stroke-width="1.1"/>
+                                            <text x="199" y="53" fill="#0A4D3C" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">⌖</text>
+                                            <text x="225" y="52" fill="#0B1215" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600">Ø0.05</text>
+                                            <text x="294" y="52" fill="#0B1215" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600">A</text>
+                                            <text x="327" y="52" fill="#0B1215" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600">B</text>
+                                            <text x="360" y="52" fill="#0B1215" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600">C</text>
+
+                                            <!-- Parsed Entity Box -->
+                                            <rect x="190" y="74" width="192" height="100" fill="#0B1215"/>
+                                            <text x="200" y="90" fill="#6EE7B7" font-family="JetBrains Mono, monospace" font-size="7.8" font-weight="600">// ENGINEER_PARSED_GDT</text>
+                                            <text x="200" y="105" fill="#E2E8F0" font-family="JetBrains Mono, monospace" font-size="7.8">"feature": "PRIMARY_BORE",</text>
+                                            <text x="200" y="120" fill="#E2E8F0" font-family="JetBrains Mono, monospace" font-size="7.8">"control": "TRUE_POSITION",</text>
+                                            <text x="200" y="135" fill="#A7F3D0" font-family="JetBrains Mono, monospace" font-size="7.8">"tol_mm": 0.05,</text>
+                                            <text x="200" y="150" fill="#E2E8F0" font-family="JetBrains Mono, monospace" font-size="7.8">"datums": ["A", "B", "C"],</text>
+                                            <text x="200" y="165" fill="#6EE7B7" font-family="JetBrains Mono, monospace" font-size="7.8">"cad_link": "STEP_REV_C"</text>
+
+                                            <text x="38" y="204" fill="#0B1215" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">ALIGNED 2D PRINT + 3D STEP/DXF PAIRS</text>
+                                        </g>
+                                    </svg>
+
+                                    <!-- SVG 04: MACHINING, INSPECTION & QUALITY -->
+                                    <svg id="specimen-svg-machining" viewBox="0 0 420 225" class="w-full h-auto max-h-[225px] hidden" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CNC Machined Shaft CMM Inspection Specimen">
+                                        <!-- Stepped CNC Shaft -->
+                                        <rect x="42" y="92" width="76" height="46" fill="#F1F5F9" stroke="#0B1215" stroke-width="1.3"/>
+                                        <rect x="118" y="74" width="144" height="82" fill="#E2E8F0" stroke="#0B1215" stroke-width="1.3"/>
+                                        <rect x="262" y="98" width="76" height="34" fill="#F1F5F9" stroke="#0B1215" stroke-width="1.3"/>
+                                        <line x1="28" y1="115" x2="354" y2="115" stroke="#94A3B8" stroke-width="1" stroke-dasharray="5 3"/>
+
+                                        <!-- Engineer-Labelled Spec Overlay Group -->
+                                        <g class="annotation-overlay">
+                                            <!-- CMM Probe Vector -->
+                                            <line x1="184" y1="26" x2="184" y2="69" stroke="#0A4D3C" stroke-width="2"/>
+                                            <circle cx="184" cy="71" r="3.8" fill="#B91C1C"/>
+                                            <rect x="108" y="14" width="152" height="16" fill="#F0F7F4" stroke="#0A4D3C" stroke-width="1"/>
+                                            <text x="115" y="25" fill="#0A4D3C" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">CMM: Ø42.004mm [IN_TOL]</text>
+
+                                            <!-- Surface Finish Callout -->
+                                            <polyline points="232,74 258,46 368,46" fill="none" stroke="#0B1215" stroke-width="1.1"/>
+                                            <rect x="262" y="31" width="108" height="15" fill="#0B1215"/>
+                                            <text x="268" y="41.5" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">ROUGHNESS: Ra 1.6 µm</text>
+
+                                            <!-- FAI Disposition Badge -->
+                                            <rect x="118" y="176" width="184" height="20" fill="#F0F7F4" stroke="#0A4D3C" stroke-width="1"/>
+                                            <text x="130" y="189" fill="#0A4D3C" font-family="JetBrains Mono, monospace" font-size="8.2" font-weight="600">FAI RECORD // QA_ACCEPT</text>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Structured JSON / Taxonomy Readout Docked Below Schematic -->
+                            <div class="border-t border-hairline bg-vellum p-3.5 text-[11px] font-mono">
+                                <div class="flex items-center justify-between text-[10px] text-slateBody mb-1.5">
+                                    <span>STRUCTURED TAXONOMY &amp; QA PAYLOAD</span>
+                                    <span id="specimen-state-tag" class="text-forest font-semibold">STATE: ENGINEER_VERIFIED</span>
+                                </div>
+                                <pre id="specimen-json-readout" class="bg-white border border-hairline p-2.5 text-[10.5px] leading-relaxed text-ink overflow-x-auto">{
+  "domain": "02_FABRICATION_AND_WELDING",
+  "labels": ["FILLET_WELD", "TOE_UNDERCUT_0.22MM"],
+  "modalities": ["RGB_MACRO", "WELD_LOG", "CAD_REF"],
+  "qa_signoff": "MECHANICAL_ENGINEER_VERIFIED"
+}</pre>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                        <div>
-                            <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
-                                <span>Size: <strong>142 GB</strong></span>
-                                <span>Duration: <strong>72 Hours</strong></span>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SECTION 01 — FOUR DOMAINS. ONE ENGINEERING DRAWING BOARD -->
+        <section id="domains" class="py-16 sm:py-20 lg:py-24 bg-white border-b border-hairline">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-2xl mb-12">
+                    <div class="text-[11px] font-mono font-semibold text-forest uppercase tracking-widest mb-2">
+                        01 // DOMAIN COVERAGE
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl lg:text-[36px] font-bold text-ink tracking-[-0.03em] leading-tight">
+                        Four Domains. One Engineering Drawing Board.
+                    </h2>
+                </div>
+
+                <!-- Clean 2x2 Architectural Hairline Grid -->
+                <div class="grid md:grid-cols-2 gap-px bg-hairline border border-hairline">
+
+                    <!-- 01 Castings & Foundry -->
+                    <article class="bg-white hover:bg-vellum/70 transition p-7 sm:p-9 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-mono font-semibold text-slateBody">01</span>
+                                <!-- Minimalist Technical SVG Icon -->
+                                <svg class="w-5 h-5 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16v12H4V6zm4 4h8v4H8v-4z"/>
+                                </svg>
                             </div>
-                            <h3 class="text-lg font-bold text-white hover:text-brand-400 transition cursor-pointer" onclick="openDatasetDetail('Masking Tape Peeling & Continuous State-Change Library')">
-                                Masking Tape Peeling & State-Change Library
-                            </h3>
-                            <p class="text-xs text-gray-400 mt-2 line-clamp-2">
-                                High-speed macro and standard angle footage capturing continuous tape adhesion, stretching, ripping physics, and tearing action for Sora & Veo physics training.
+                            <h3 class="text-xl font-bold text-ink tracking-[-0.02em]">Castings &amp; Foundry</h3>
+                            <p class="text-[15px] text-slateBody leading-relaxed">
+                                Casting defects, melt and mould processes, and foundry inspection — labelled by people who know one defect from another.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-gray-800 flex items-center justify-between">
-                            <div>
-                                <span class="text-[10px] text-gray-400 block">Licensing Rights</span>
-                                <span class="text-xs font-semibold text-emerald-400">Commercial Training OK</span>
-                            </div>
-                            <button onclick="openModal('custom-request', 'Masking Tape Peeling')" class="px-4 py-2 rounded-xl text-xs font-semibold bg-brand-600 hover:bg-brand-500 text-white shadow-lg transition">
-                                Request Access
+                        <div class="mt-8 pt-4 border-t border-hairline flex items-center justify-between">
+                            <span class="text-[11px] font-mono text-slateBody">DWG-01</span>
+                            <button type="button" onclick="specifyDomainAndScroll('01 Castings & Foundry')" class="text-[13px] font-medium text-forest hover:text-forest-hover transition py-1 cursor-pointer">
+                                Specify this domain &rarr;
                             </button>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <!-- Dataset Card 2 -->
-                <div class="glass-card rounded-2xl overflow-hidden border border-gray-700/80 hover:border-brand-500/50 transition duration-300 flex flex-col" data-category="robotics">
-                    <div class="relative h-48 bg-dark-900 overflow-hidden">
-                        <img src="https://placehold.co/600x350/1a1d29/10b981?text=Egocentric+Robotics+POV" alt="Robotics POV" class="w-full h-full object-cover opacity-80">
-                        <div class="absolute top-3 right-3 bg-emerald-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg backdrop-blur">
-                            Egocentric 60FPS
-                        </div>
-                        <div class="absolute bottom-3 left-3 bg-dark-900/80 text-emerald-400 text-[10px] font-semibold px-2 py-0.5 rounded-md border border-gray-700">
-                            <i class="fa-solid fa-check-circle mr-1"></i> Faces Blurred
-                        </div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                        <div>
-                            <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
-                                <span>Size: <strong>285 GB</strong></span>
-                                <span>Duration: <strong>140 Hours</strong></span>
+                    <!-- 02 Fabrication & Welding (Core Offer Badge) -->
+                    <article class="bg-white hover:bg-forest-tint/35 transition p-7 sm:p-9 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2.5">
+                                    <span class="text-xs font-mono font-semibold text-forest">02</span>
+                                    <span class="px-2 py-0.5 bg-forest-tint border border-forest-border text-forest text-[10px] font-mono font-semibold uppercase tracking-wider">
+                                        Core Offer
+                                    </span>
+                                </div>
+                                <!-- Minimalist Technical SVG Icon -->
+                                <svg class="w-5 h-5 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="square" stroke-width="1.5" d="M5 19h14M10 5v14m0-5l5 5"/>
+                                </svg>
                             </div>
-                            <h3 class="text-lg font-bold text-white hover:text-brand-400 transition cursor-pointer" onclick="openDatasetDetail('Egocentric First-Person Workspace & Tool Interaction')">
-                                Egocentric First-Person Workspace & Tool Interaction
-                            </h3>
-                            <p class="text-xs text-gray-400 mt-2 line-clamp-2">
-                                Head-mounted camera recordings of hands manipulating tools, opening packages, and executing procedural multi-step assembly tasks for embodied AI.
+                            <h3 class="text-xl font-bold text-ink tracking-[-0.02em]">Fabrication &amp; Welding</h3>
+                            <p class="text-[15px] text-slateBody leading-relaxed">
+                                Fabrication operations, welds and welded assemblies, fit-up and finish — the core offer behind this sheet.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-gray-800 flex items-center justify-between">
-                            <div>
-                                <span class="text-[10px] text-gray-400 block">Licensing Rights</span>
-                                <span class="text-xs font-semibold text-emerald-400">Commercial Training OK</span>
-                            </div>
-                            <button onclick="openModal('custom-request', 'Egocentric Robotics POV')" class="px-4 py-2 rounded-xl text-xs font-semibold bg-brand-600 hover:bg-brand-500 text-white shadow-lg transition">
-                                Request Access
+                        <div class="mt-8 pt-4 border-t border-hairline flex items-center justify-between">
+                            <span class="text-[11px] font-mono text-forest font-medium">DWG-02 · PRIMARY</span>
+                            <button type="button" onclick="specifyDomainAndScroll('02 Fabrication & Welding')" class="text-[13px] font-medium text-forest hover:text-forest-hover transition py-1 cursor-pointer">
+                                Specify this domain &rarr;
                             </button>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <!-- Dataset Card 3 -->
-                <div class="glass-card rounded-2xl overflow-hidden border border-gray-700/80 hover:border-brand-500/50 transition duration-300 flex flex-col" data-category="multimodal">
-                    <div class="relative h-48 bg-dark-900 overflow-hidden">
-                        <img src="https://placehold.co/600x350/1a1d29/f59e0b?text=Multimodal+Foley+Audio" alt="Multimodal Foley" class="w-full h-full object-cover opacity-80">
-                        <div class="absolute top-3 right-3 bg-amber-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg backdrop-blur">
-                            Video + Sync Audio
-                        </div>
-                        <div class="absolute bottom-3 left-3 bg-dark-900/80 text-emerald-400 text-[10px] font-semibold px-2 py-0.5 rounded-md border border-gray-700">
-                            <i class="fa-solid fa-check-circle mr-1"></i> Studio Silent
-                        </div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                        <div>
-                            <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
-                                <span>Size: <strong>98 GB</strong></span>
-                                <span>Duration: <strong>50 Hours</strong></span>
+                    <!-- 03 Design, CAD & Drawings -->
+                    <article class="bg-white hover:bg-vellum/70 transition p-7 sm:p-9 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-mono font-semibold text-slateBody">03</span>
+                                <!-- Minimalist Technical SVG Icon -->
+                                <svg class="w-5 h-5 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="square" stroke-width="1.5" d="M4 4h16v16H4V4zm4 4h8v8H8V8zm4-4v16M4 12h16"/>
+                                </svg>
                             </div>
-                            <h3 class="text-lg font-bold text-white hover:text-brand-400 transition cursor-pointer" onclick="openDatasetDetail('Multimodal Video-to-Audio Foley Dataset')">
-                                Multimodal Video-to-Audio Foley Dataset
-                            </h3>
-                            <p class="text-xs text-gray-400 mt-2 line-clamp-2">
-                                Pristine native audio perfectly synchronized with high-definition action footage for sound-action alignment in multimodal foundation models.
+                            <h3 class="text-xl font-bold text-ink tracking-[-0.02em]">Design, CAD &amp; Drawings</h3>
+                            <p class="text-[15px] text-slateBody leading-relaxed">
+                                Engineering drawings, CAD and design documentation, read as an engineer reads them — not as generic documents.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-gray-800 flex items-center justify-between">
-                            <div>
-                                <span class="text-[10px] text-gray-400 block">Licensing Rights</span>
-                                <span class="text-xs font-semibold text-emerald-400">Commercial Training OK</span>
-                            </div>
-                            <button onclick="openModal('custom-request', 'Multimodal Foley Audio')" class="px-4 py-2 rounded-xl text-xs font-semibold bg-brand-600 hover:bg-brand-500 text-white shadow-lg transition">
-                                Request Access
+                        <div class="mt-8 pt-4 border-t border-hairline flex items-center justify-between">
+                            <span class="text-[11px] font-mono text-slateBody">DWG-03</span>
+                            <button type="button" onclick="specifyDomainAndScroll('03 Design, CAD & Drawings')" class="text-[13px] font-medium text-forest hover:text-forest-hover transition py-1 cursor-pointer">
+                                Specify this domain &rarr;
                             </button>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Data Sample Preview & Compliance Lab -->
-    <section id="preview-lab" class="py-20 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
-                
-                <div class="lg:col-span-5 space-y-6">
-                    <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                        <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Live Inspection & Compliance Engine
-                    </div>
-                    <h2 class="text-3xl font-bold text-white">Inspect Frame Quality & PII Sanitization Before Licensing</h2>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        AI engineers require strict verification of temporal consistency, frame rate, and redaction compliance. Toggle our live inspection simulator to examine how our pipeline strips PII while retaining uncompressed physics data.
-                    </p>
-
-                    <div class="space-y-3">
-                        <div onclick="setInspectorMode('raw')" id="tab-raw" class="p-4 rounded-xl border border-brand-500 bg-brand-600/10 cursor-pointer transition flex items-center justify-between">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white"><i class="fa-solid fa-video"></i></div>
-                                <div>
-                                    <div class="text-sm font-semibold text-white">1. Raw Native Physics View</div>
-                                    <div class="text-xs text-gray-400">Uncompressed 4K ProRes color spectrum</div>
-                                </div>
+                    <!-- 04 Machining, Inspection & Quality -->
+                    <article class="bg-white hover:bg-vellum/70 transition p-7 sm:p-9 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-mono font-semibold text-slateBody">04</span>
+                                <!-- Minimalist Technical SVG Icon -->
+                                <svg class="w-5 h-5 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="square" stroke-width="1.5" d="M12 3v12m0 0l-3-3m3 3l3-3M4 19h16"/>
+                                </svg>
                             </div>
-                            <i class="fa-solid fa-circle-check text-brand-400"></i>
+                            <h3 class="text-xl font-bold text-ink tracking-[-0.02em]">Machining, Inspection &amp; Quality</h3>
+                            <p class="text-[15px] text-slateBody leading-relaxed">
+                                Machining, measurement, inspection records and quality decisions from the shop floor to final acceptance.
+                            </p>
                         </div>
+                        <div class="mt-8 pt-4 border-t border-hairline flex items-center justify-between">
+                            <span class="text-[11px] font-mono text-slateBody">DWG-04</span>
+                            <button type="button" onclick="specifyDomainAndScroll('04 Machining, Inspection & Quality')" class="text-[13px] font-medium text-forest hover:text-forest-hover transition py-1 cursor-pointer">
+                                Specify this domain &rarr;
+                            </button>
+                        </div>
+                    </article>
 
-                        <div onclick="setInspectorMode('pii')" id="tab-pii" class="p-4 rounded-xl border border-gray-800 bg-dark-800 hover:border-gray-700 cursor-pointer transition flex items-center justify-between">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white"><i class="fa-solid fa-user-shield"></i></div>
-                                <div>
-                                    <div class="text-sm font-semibold text-white">2. PII Sanitized & EgoBlur Mode</div>
-                                    <div class="text-xs text-gray-400">Faces, badges, and credentials redacted</div>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-circle text-gray-700" id="icon-pii"></i>
-                        </div>
-                    </div>
                 </div>
-
-                <div class="lg:col-span-7">
-                    <div class="glass-card rounded-2xl p-6 border border-gray-700 shadow-2xl relative">
-                        <div class="flex items-center justify-between pb-4 border-b border-gray-800 text-xs">
-                            <div class="flex items-center space-x-2 text-gray-300">
-                                <i class="fa-solid fa-film text-brand-400"></i>
-                                <span id="inspector-title-label">Dataset Sample: Masking Tape Peeling (Frame #1420)</span>
-                            </div>
-                            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-mono text-[10px]" id="badge-status">COMPLIANT</span>
-                        </div>
-
-                        <div class="relative my-4 rounded-xl overflow-hidden bg-black aspect-video flex items-center justify-center border border-gray-700">
-                            <!-- Mock video player canvas / image -->
-                            <img id="inspector-image" src="https://placehold.co/800x450/12141c/818cf8?text=RAW+4K+Tape+Peeling+Action+-+Uncompressed" alt="Sample Preview" class="w-full h-full object-cover transition duration-300">
-                            
-                            <!-- Overlay watermark or status -->
-                            <div class="absolute bottom-4 left-4 bg-dark-900/90 backdrop-blur px-3 py-2 rounded-xl border border-gray-700 text-xs flex items-center space-x-4">
-                                <div>FPS: <span class="text-white font-mono">60.0</span></div>
-                                <div>Codec: <span class="text-white font-mono">ProRes RAW</span></div>
-                                <div>Resolution: <span class="text-white font-mono">3840x2160</span></div>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-between text-xs text-gray-400 pt-2">
-                            <span>Export Format: <strong class="text-white">JSON / COCO / Parquet</strong></span>
-                            <button onclick="openModal('custom-request')" class="text-brand-400 hover:underline font-semibold">Download Engineering Sample Package &rarr;</button>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Seller / Collector Portal & Upload Guide -->
-    <section id="creators" class="py-20 bg-dark-800/50 border-t border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-brand-600/20 text-brand-400 border border-brand-500/30">
-                    Creator & Collector Program
-                </div>
-                <h2 class="text-3xl sm:text-4xl font-bold text-white">How to Submit Data & Earn Royalties</h2>
-                <p class="text-gray-400">
-                    Are you recording specialized manufacturing processes, robotics setups, or physical actions? Partner with NexusData to license your footage securely.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                <!-- Step 1 -->
-                <div class="glass-card rounded-2xl p-8 border border-gray-700/80 space-y-4 relative">
-                    <div class="w-12 h-12 rounded-xl bg-brand-600/20 text-brand-400 border border-brand-500/40 flex items-center justify-center font-bold text-lg">
-                        01
-                    </div>
-                    <h3 class="text-xl font-bold text-white">Capture & Provenance</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">
-                        Record uncompressed video using modern smartphones or professional cameras (RAW/ProRes). Ensure clear chain-of-permission and signed consent for all captured subjects.
-                    </p>
-                    <ul class="text-xs text-gray-300 space-y-2 pt-2 border-t border-gray-800">
-                        <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> No third-party copyright assets</li>
-                        <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Stable tripod or egocentric harness</li>
-                    </ul>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="glass-card rounded-2xl p-8 border border-gray-700/80 space-y-4 relative">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-600/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center font-bold text-lg">
-                        02
-                    </div>
-                    <h3 class="text-xl font-bold text-white">Sanitize & Scrub PII</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">
-                        Run automated sanitization tools like EgoBlur or OpenCV scripts to scrub all personally identifiable information (PII), license plates, and sensitive documents.
-                    </p>
-                    <ul class="text-xs text-gray-300 space-y-2 pt-2 border-t border-gray-800">
-                        <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Automated face & badge blurring</li>
-                        <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Clean background verification</li>
-                    </ul>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="glass-card rounded-2xl p-8 border border-gray-700/80 space-y-4 relative">
-                    <div class="w-12 h-12 rounded-xl bg-purple-600/20 text-purple-400 border border-purple-500/40 flex items-center justify-center font-bold text-lg">
-                        03
-                    </div>
-                    <h3 class="text-xl font-bold text-white">License & Monetize</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">
-                        Upload to our secure NAS ingestion portal. We retain your copyright while granting limited, verified AI training licenses to frontier labs in exchange for royalty splits.
-                    </p>
-                    <ul class="text-xs text-gray-300 space-y-2 pt-2 border-t border-gray-800">
-                        <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Retain ownership rights</li>
-                        <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Automated monthly payouts</li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="mt-12 text-center">
-                <button onclick="openModal('upload-modal')" class="inline-flex items-center px-8 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-400 shadow-xl shadow-brand-600/30 transition">
-                    <i class="fa-solid fa-cloud-arrow-up mr-2"></i> Open Creator Ingestion Portal
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enterprise Contact & Procurement Form -->
-    <section id="enterprise" class="py-20 relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-gray-700 glow-effect">
-                <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
-                    <h2 class="text-3xl font-bold text-white">Enterprise & Custom Data Procurement</h2>
-                    <p class="text-gray-400 text-sm">
-                        Building a custom foundational model or need specialized physical data collections? Connect directly with our data procurement leads.
-                    </p>
-                </div>
-
-                <form onsubmit="handleEnterpriseSubmit(event)" class="space-y-6">
-                    <div class="grid sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-300 mb-2">Full Name</label>
-                            <input type="text" required placeholder="Dr. Alex Vance" class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-300 mb-2">AI Lab / Enterprise Organization</label>
-                            <input type="text" required placeholder="OpenAI / DeepMind / Robotics Corp" class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500">
-                        </div>
-                    </div>
-
-                    <div class="grid sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-300 mb-2">Work Email</label>
-                            <input type="email" required placeholder="alex@ailab.com" class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-300 mb-2">Data Modality Required</label>
-                            <select class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500">
-                                <option>Masking Tape Peeling & Physics State-Change</option>
-                                <option>Egocentric Robotics & Tool POV</option>
-                                <option>Multimodal Video-to-Audio Foley</option>
-                                <option>Custom Data Collection Request</option>
-                            </select>
-                        </div>
-                    </div>
-
+        <!-- 4. SECTION 02 — HOW ON-DEMAND WORKS (5-STEP CONTROLLED WORKFLOW ON #F8FAFC) -->
+        <section id="how-it-works" class="py-16 sm:py-20 lg:py-24 bg-vellum border-b border-hairline">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
                     <div>
-                        <label class="block text-xs font-semibold text-gray-300 mb-2">Project Specifications & Volume Needs</label>
-                        <textarea rows="4" required placeholder="Describe your fine-tuning requirements, frame rate expectations, and licensing duration..." class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500"></textarea>
+                        <div class="text-[11px] font-mono font-semibold text-forest uppercase tracking-widest mb-2">
+                            02 // CONTROLLED WORKFLOW
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl lg:text-[36px] font-bold text-ink tracking-[-0.03em] leading-tight">
+                            How On-Demand Works
+                        </h2>
+                    </div>
+                    <span class="text-xs font-mono text-slateBody">5-STEP NDA DELIVERY PROTOCOL</span>
+                </div>
+
+                <!-- Clean 5-Column Horizontal Sequence -->
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-px bg-hairline border border-hairline">
+                    <!-- Step 1 -->
+                    <div class="bg-white p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs font-mono font-semibold text-forest mb-4">01</div>
+                            <h3 class="text-base font-bold text-ink tracking-[-0.01em] mb-2.5">Your brief</h3>
+                            <p class="text-sm text-slateBody leading-relaxed">
+                                Tell us the model problem — what it must recognise, predict or generate.
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-3 border-t border-hairline text-[10px] font-mono text-slateBody uppercase">
+                            STEP 01 // INTAKE
+                        </div>
                     </div>
 
-                    <div class="text-center">
-                        <button type="submit" class="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold text-white bg-brand-600 hover:bg-brand-500 shadow-xl shadow-brand-600/30 transition">
-                            <i class="fa-solid fa-paper-plane mr-2"></i> Submit Procurement Inquiry
-                        </button>
+                    <!-- Step 2 -->
+                    <div class="bg-white p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs font-mono font-semibold text-forest mb-4">02</div>
+                            <h3 class="text-base font-bold text-ink tracking-[-0.01em] mb-2.5">Small sample first</h3>
+                            <p class="text-sm text-slateBody leading-relaxed">
+                                A sample under NDA, so you can judge label quality before committing.
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-3 border-t border-hairline text-[10px] font-mono text-forest font-medium uppercase">
+                            STEP 02 // NDA SAMPLE
+                        </div>
                     </div>
-                </form>
+
+                    <!-- Step 3 -->
+                    <div class="bg-white p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs font-mono font-semibold text-forest mb-4">03</div>
+                            <h3 class="text-base font-bold text-ink tracking-[-0.01em] mb-2.5">Spec and rights agreed</h3>
+                            <p class="text-sm text-slateBody leading-relaxed">
+                                Taxonomy, scope, format, licence and rights basis locked in writing.
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-3 border-t border-hairline text-[10px] font-mono text-slateBody uppercase">
+                            STEP 03 // WRITTEN SPEC
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="bg-white p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs font-mono font-semibold text-forest mb-4">04</div>
+                            <h3 class="text-base font-bold text-ink tracking-[-0.01em] mb-2.5">Built and checked by engineers</h3>
+                            <p class="text-sm text-slateBody leading-relaxed">
+                                Prepared and QA-checked against your spec, not crowd-labelled blind.
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-3 border-t border-hairline text-[10px] font-mono text-forest font-medium uppercase">
+                            STEP 04 // ENGINEER QA
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="bg-white p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs font-mono font-semibold text-forest mb-4">05</div>
+                            <h3 class="text-base font-bold text-ink tracking-[-0.01em] mb-2.5">Licensed delivery</h3>
+                            <p class="text-sm text-slateBody leading-relaxed">
+                                Delivered to the agreed spec for AI training use, ready for your pipeline.
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-3 border-t border-hairline text-[10px] font-mono text-slateBody uppercase">
+                            STEP 05 // PIPELINE READY
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SECTION 03 — ENGINEERING AUTHORITY (3 PILLARS) -->
+        <section class="py-16 sm:py-20 bg-white border-b border-hairline">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-12">
+                    <div class="text-[11px] font-mono font-semibold text-forest uppercase tracking-widest mb-2">
+                        03 // ENGINEERING AUTHORITY
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-ink tracking-[-0.03em]">
+                        Why AI Teams Source Custom Shop-Floor Data Here
+                    </h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-px bg-hairline border border-hairline">
+                    <!-- Pillar 1 -->
+                    <div class="bg-white p-7 sm:p-8 space-y-3">
+                        <div class="text-[11px] font-mono text-forest font-semibold uppercase tracking-wider">01 · DOMAIN RIGOR</div>
+                        <h3 class="text-lg font-bold text-ink tracking-[-0.02em]">Engineer-labelled, not generic</h3>
+                        <p class="text-[15px] text-slateBody leading-relaxed">
+                            Extensive background in manufacturing and mechanical engineering sits behind every label and QA decision.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="bg-white p-7 sm:p-8 space-y-3">
+                        <div class="text-[11px] font-mono text-forest font-semibold uppercase tracking-wider">02 · PURPOSE-BUILT</div>
+                        <h3 class="text-lg font-bold text-ink tracking-[-0.02em]">Made for AI companies</h3>
+                        <p class="text-[15px] text-slateBody leading-relaxed">
+                            Built for buyers training vision, inspection, robotics and industrial AI models on real manufacturing work.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="bg-white p-7 sm:p-8 space-y-3">
+                        <div class="text-[11px] font-mono text-forest font-semibold uppercase tracking-wider">03 · EXACT FIT</div>
+                        <h3 class="text-lg font-bold text-ink tracking-[-0.02em]">Custom beats off-the-shelf</h3>
+                        <p class="text-[15px] text-slateBody leading-relaxed">
+                            A dataset shaped to your requirement, your taxonomy and your acceptance criteria — not a catalogue compromise.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. SECTION 04 — YOU SPECIFY. WE BUILD TO IT (Interactive Brief Configurator & Direct Enquiry Routing) -->
+        <section id="specifications" class="py-16 sm:py-20 lg:py-24 bg-vellum">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 items-start gap-10 lg:gap-12">
+
+                    <!-- LEFT COLUMN (5 COLS): 6 Datasheet Specification Parameters + Commercial Note + Direct Contact -->
+                    <div class="lg:col-span-5 space-y-8">
+                        <div>
+                            <div class="text-[11px] font-mono font-semibold text-forest uppercase tracking-widest mb-2">
+                                04 // SPECIFICATION &amp; BRIEF INTAKE
+                            </div>
+                            <h2 class="text-2xl sm:text-3xl lg:text-[34px] font-bold text-ink tracking-[-0.03em] leading-tight">
+                                You Specify. We Build To It.
+                            </h2>
+                            <p class="text-[15px] text-slateBody leading-relaxed mt-3">
+                                Have a requirement? Send the brief — we will reply with what we can build, a sample plan, and the spec we would work to.
+                            </p>
+                        </div>
+
+                        <!-- Structured 6-Parameter Table -->
+                        <div class="bg-white border border-hairline divide-y divide-hairline">
+                            <div class="px-5 py-3.5 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-xs font-mono text-forest font-semibold">01</span>
+                                    <span class="text-sm font-medium text-ink">Part, process or product family</span>
+                                </div>
+                                <span class="text-[10px] font-mono text-slateBody">TO BRIEF</span>
+                            </div>
+                            <div class="px-5 py-3.5 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-xs font-mono text-forest font-semibold">02</span>
+                                    <span class="text-sm font-medium text-ink">Defect types and labelling taxonomy</span>
+                                </div>
+                                <span class="text-[10px] font-mono text-slateBody">TO BRIEF</span>
+                            </div>
+                            <div class="px-5 py-3.5 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-xs font-mono text-forest font-semibold">03</span>
+                                    <span class="text-sm font-medium text-ink">Data type and delivery format</span>
+                                </div>
+                                <span class="text-[10px] font-mono text-slateBody">TO BRIEF</span>
+                            </div>
+                            <div class="px-5 py-3.5 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-xs font-mono text-forest font-semibold">04</span>
+                                    <span class="text-sm font-medium text-ink">Volume and schedule</span>
+                                </div>
+                                <span class="text-[10px] font-mono text-slateBody">TO BRIEF</span>
+                            </div>
+                            <div class="px-5 py-3.5 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-xs font-mono text-forest font-semibold">05</span>
+                                    <span class="text-sm font-medium text-ink">Real, anonymised or synthetic basis</span>
+                                </div>
+                                <span class="text-[10px] font-mono text-slateBody">TO BRIEF</span>
+                            </div>
+                            <div class="px-5 py-3.5 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-xs font-mono text-forest font-semibold">06</span>
+                                    <span class="text-sm font-medium text-ink">Licence scope for training use</span>
+                                </div>
+                                <span class="text-[10px] font-mono text-slateBody">TO BRIEF</span>
+                            </div>
+                        </div>
+
+                        <!-- Exact Datasheet Commercial Note -->
+                        <div class="bg-white border border-hairline p-5">
+                            <div class="text-[10px] font-mono font-semibold text-ink uppercase tracking-wider mb-1.5">
+                                COMMERCIAL &amp; LICENSING BASIS
+                            </div>
+                            <p class="text-xs sm:text-[13px] text-slateBody leading-relaxed">
+                                Volume, format, rights basis and price are set per brief and agreed before work starts — they are not pre-set on this sheet.
+                            </p>
+                        </div>
+
+                        <!-- Direct Contact Block for Santhosh Chandrasekar -->
+                        <div class="bg-white border border-hairline p-5 space-y-2.5">
+                            <div class="text-[10px] font-mono font-semibold text-forest uppercase tracking-wider">
+                                DIRECT SPECIFICATION DESK
+                            </div>
+                            <div class="text-base font-bold text-ink">Santhosh Chandrasekar</div>
+                            <div class="space-y-1.5 text-xs font-mono">
+                                <div class="flex items-center justify-between gap-2">
+                                    <a href="mailto:sales@greenglorytechnologies.com" class="text-forest font-semibold hover:underline break-all">
+                                        sales@greenglorytechnologies.com
+                                    </a>
+                                    <button type="button" onclick="copyEmailOnly()" class="text-[11px] text-slateBody hover:text-ink underline shrink-0 cursor-pointer">
+                                        Copy
+                                    </button>
+                                </div>
+                                <div>
+                                    <a href="tel:+13512287359" class="text-ink hover:text-forest">+1 351 228 7359</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT COLUMN (7 COLS): Executive Brief Intake Form + Tabbed Live Spec Preview + Direct Dispatch -->
+                    <div class="lg:col-span-7 bg-white border border-hairline">
+                        <!-- Top Card Bar with Tab Switcher: Brief Intake vs Live Specification Document Preview -->
+                        <div class="px-6 py-4 border-b border-hairline bg-vellum flex flex-wrap items-center justify-between gap-3">
+                            <div>
+                                <div class="text-[11px] font-mono font-semibold text-ink uppercase tracking-wider">
+                                    DATASET SPECIFICATION BRIEF
+                                </div>
+                                <div class="text-xs text-slateBody mt-0.5">
+                                    Routed directly to <span class="font-mono text-forest font-medium">sales@greenglorytechnologies.com</span>
+                                </div>
+                            </div>
+
+                            <!-- Tabbed Toggle between Form and Live Specification Document Preview -->
+                            <div class="inline-flex border border-hairline bg-white p-0.5 text-[11px] font-mono" role="tablist">
+                                <button type="button" id="brief-tab-form" onclick="switchBriefTab('form')" class="px-3 py-1.5 bg-forest text-white font-medium transition cursor-pointer">
+                                    Brief Intake
+                                </button>
+                                <button type="button" id="brief-tab-preview" onclick="switchBriefTab('preview')" class="px-3 py-1.5 text-slateBody hover:text-ink transition cursor-pointer">
+                                    Live Spec Preview
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- TAB 1: BRIEF INTAKE FORM -->
+                        <form id="brief-form-panel" onsubmit="handleSendBrief(event)" class="p-6 sm:p-8 space-y-6">
+                            <input id="field-hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+
+                            <!-- 1. Target Domain(s) Multi-Select -->
+                            <div>
+                                <label class="block text-xs font-mono font-semibold text-ink uppercase tracking-wider mb-2">
+                                    Target Domain(s)
+                                </label>
+                                <div class="grid sm:grid-cols-2 gap-2" id="domain-selector-grid">
+                                    <button type="button" data-domain="01 Castings & Foundry" onclick="toggleDomainSelection(this)" class="domain-chip text-left px-3.5 py-2.5 border border-hairline bg-white hover:bg-vellum text-xs font-medium text-ink transition flex items-center justify-between cursor-pointer">
+                                        <span>01 Castings &amp; Foundry</span>
+                                        <span class="chip-check font-mono text-[10px] text-slate-400">SELECT</span>
+                                    </button>
+                                    <button type="button" data-domain="02 Fabrication & Welding" onclick="toggleDomainSelection(this)" class="domain-chip selected text-left px-3.5 py-2.5 border border-forest bg-forest-tint text-xs font-semibold text-forest transition flex items-center justify-between cursor-pointer">
+                                        <span>02 Fabrication &amp; Welding</span>
+                                        <span class="chip-check font-mono text-[10px] text-forest">ACTIVE</span>
+                                    </button>
+                                    <button type="button" data-domain="03 Design, CAD & Drawings" onclick="toggleDomainSelection(this)" class="domain-chip text-left px-3.5 py-2.5 border border-hairline bg-white hover:bg-vellum text-xs font-medium text-ink transition flex items-center justify-between cursor-pointer">
+                                        <span>03 Design, CAD &amp; Drawings</span>
+                                        <span class="chip-check font-mono text-[10px] text-slate-400">SELECT</span>
+                                    </button>
+                                    <button type="button" data-domain="04 Machining, Inspection & Quality" onclick="toggleDomainSelection(this)" class="domain-chip text-left px-3.5 py-2.5 border border-hairline bg-white hover:bg-vellum text-xs font-medium text-ink transition flex items-center justify-between cursor-pointer">
+                                        <span>04 Machining, Inspection &amp; Quality</span>
+                                        <span class="chip-check font-mono text-[10px] text-slate-400">SELECT</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- 2. Data Basis Segmented Selector -->
+                            <div>
+                                <label class="block text-xs font-mono font-semibold text-ink uppercase tracking-wider mb-2">
+                                    Data Basis
+                                </label>
+                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-px bg-hairline border border-hairline" role="radiogroup" aria-label="Data Basis">
+                                    <button type="button" data-basis="Real" onclick="selectDataBasis(this)" class="basis-btn py-2.5 px-3 bg-forest text-white text-xs font-mono font-semibold text-center transition cursor-pointer">
+                                        Real
+                                    </button>
+                                    <button type="button" data-basis="Anonymised" onclick="selectDataBasis(this)" class="basis-btn py-2.5 px-3 bg-white text-slateBody hover:text-ink text-xs font-mono text-center transition cursor-pointer">
+                                        Anonymised
+                                    </button>
+                                    <button type="button" data-basis="Synthetic" onclick="selectDataBasis(this)" class="basis-btn py-2.5 px-3 bg-white text-slateBody hover:text-ink text-xs font-mono text-center transition cursor-pointer">
+                                        Synthetic
+                                    </button>
+                                    <button type="button" data-basis="Hybrid" onclick="selectDataBasis(this)" class="basis-btn py-2.5 px-3 bg-white text-slateBody hover:text-ink text-xs font-mono text-center transition cursor-pointer">
+                                        Hybrid
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- 3. Part / Process Family + Defect Taxonomy -->
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="field-part-family" class="block text-xs font-mono font-semibold text-ink uppercase tracking-wider mb-1.5">
+                                        Part / Process Family <span class="text-red-600">*</span>
+                                    </label>
+                                    <input id="field-part-family" type="text" required oninput="updateSpecificationDocument()" placeholder="e.g., Structural steel fillet welds, CNC shafts" class="w-full px-3.5 py-2.5 bg-white border border-hairline focus:border-forest focus:outline-none text-sm text-ink">
+                                </div>
+                                <div>
+                                    <label for="field-taxonomy" class="block text-xs font-mono font-semibold text-ink uppercase tracking-wider mb-1.5">
+                                        Defect Taxonomy &amp; Labels <span class="text-red-600">*</span>
+                                    </label>
+                                    <input id="field-taxonomy" type="text" required oninput="updateSpecificationDocument()" placeholder="e.g., Toe undercut, porosity, GD&T datums" class="w-full px-3.5 py-2.5 bg-white border border-hairline focus:border-forest focus:outline-none text-sm text-ink">
+                                </div>
+                            </div>
+
+                            <!-- 4. Delivery Format & Target Volume -->
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="field-format" class="block text-xs font-mono font-semibold text-ink uppercase tracking-wider mb-1.5">
+                                        Delivery Format
+                                    </label>
+                                    <select id="field-format" onchange="updateSpecificationDocument()" class="w-full px-3.5 py-2.5 bg-white border border-hairline focus:border-forest focus:outline-none text-sm text-ink">
+                                        <option value="High-res Images / Video + COCO/YOLO JSON">Images / Video + COCO/YOLO JSON</option>
+                                        <option value="Pixel Segmentation Masks + Raw Imagery">Pixel Segmentation Masks + Raw Imagery</option>
+                                        <option value="2D Engineering Prints (PDF/TIFF) + 3D CAD (STEP/DXF)">2D Prints (PDF/TIFF) + 3D CAD (STEP/DXF)</option>
+                                        <option value="CMM / Inspection Logs + Paired Imagery">CMM / Inspection Logs + Paired Imagery</option>
+                                        <option value="Custom Format (Agreed in Written Spec)">Custom Format (Agreed in Written Spec)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="field-volume" class="block text-xs font-mono font-semibold text-ink uppercase tracking-wider mb-1.5">
+                                        Target Volume &amp; Schedule
+                                    </label>
+                                    <input id="field-volume" type="text" oninput="updateSpecificationDocument()" placeholder="e.g., 15,000 frames in 4 weeks" class="w-full px-3.5 py-2.5 bg-white border border-hairline focus:border-forest focus:outline-none text-sm text-ink">
+                                </div>
+                            </div>
+
+                            <!-- 5. Model Problem & Acceptance Criteria -->
+                            <div>
+                                <label for="field-problem" class="block text-xs font-mono font-semibold text-ink uppercase tracking-wider mb-1.5">
+                                    Model Problem &amp; Acceptance Criteria <span class="text-red-600">*</span>
+                                </label>
+                                <textarea id="field-problem" rows="3" required oninput="updateSpecificationDocument()" placeholder="Tell us what your vision, inspection, or robotics model must recognise, predict, or generate, plus any accuracy/QA thresholds..." class="w-full px-3.5 py-2.5 bg-white border border-hairline focus:border-forest focus:outline-none text-sm text-ink"></textarea>
+                            </div>
+
+                            <!-- 6. Sender Details -->
+                            <div class="pt-4 border-t border-hairline space-y-4">
+                                <div class="text-[11px] font-mono font-semibold text-slateBody uppercase tracking-wider">
+                                    SENDER DETAILS
+                                </div>
+                                <div class="grid sm:grid-cols-3 gap-3.5">
+                                    <div>
+                                        <label for="field-sender-name" class="block text-[11px] font-mono text-ink uppercase mb-1">
+                                            Name <span class="text-red-600">*</span>
+                                        </label>
+                                        <input id="field-sender-name" type="text" required oninput="updateSpecificationDocument()" placeholder="Jane Doe" class="w-full px-3 py-2 bg-white border border-hairline focus:border-forest focus:outline-none text-sm text-ink">
+                                    </div>
+                                    <div>
+                                        <label for="field-sender-email" class="block text-[11px] font-mono text-ink uppercase mb-1">
+                                            Work Email <span class="text-red-600">*</span>
+                                        </label>
+                                        <input id="field-sender-email" type="email" required oninput="updateSpecificationDocument()" placeholder="jane@company.com" class="w-full px-3 py-2 bg-white border border-hairline focus:border-forest focus:outline-none text-sm text-ink">
+                                    </div>
+                                    <div>
+                                        <label for="field-sender-company" class="block text-[11px] font-mono text-ink uppercase mb-1">
+                                            Company <span class="text-red-600">*</span>
+                                        </label>
+                                        <input id="field-sender-company" type="text" required oninput="updateSpecificationDocument()" placeholder="Acme Robotics" class="w-full px-3 py-2 bg-white border border-hairline focus:border-forest focus:outline-none text-sm text-ink">
+                                    </div>
+                                </div>
+
+                                <label class="flex items-center space-x-2.5 pt-1 cursor-pointer">
+                                    <input id="field-nda" type="checkbox" checked onchange="updateSpecificationDocument()" class="w-4 h-4 accent-forest">
+                                    <span class="text-xs font-medium text-ink">Request a small sample under NDA before committing to full volume</span>
+                                </label>
+                            </div>
+
+                            <!-- Collapsible Inline Spec Preview Accordion -->
+                            <div class="border border-hairline bg-vellum">
+                                <button type="button" onclick="toggleInlineSpecDrawer()" class="w-full px-4 py-2.5 flex items-center justify-between text-xs font-mono text-ink hover:bg-slate-100 transition cursor-pointer">
+                                    <span class="font-medium">INSPECT FORMATTED SPECIFICATION DOCUMENT</span>
+                                    <span id="inline-drawer-indicator" class="text-forest font-semibold">+ EXPAND</span>
+                                </button>
+                                <div id="inline-spec-drawer" class="hidden border-t border-hairline p-4 bg-white">
+                                    <pre id="inline-spec-text" class="text-[11px] font-mono text-slateBody whitespace-pre-wrap leading-relaxed overflow-x-auto"></pre>
+                                </div>
+                            </div>
+
+                            <!-- THREE RELIABLE SEND ACTIONS -->
+                            <div class="space-y-2.5 pt-1">
+                                <!-- Primary Button -->
+                                <button type="submit" class="w-full py-3.5 px-6 bg-forest hover:bg-forest-hover text-white text-sm font-medium tracking-tight transition flex items-center justify-center space-x-2 cursor-pointer">
+                                    <span>Send Brief to sales@greenglorytechnologies.com</span>
+                                    <span>&rarr;</span>
+                                </button>
+
+                                <!-- Secondary & Utility Buttons -->
+                                <div class="grid sm:grid-cols-2 gap-2.5">
+                                    <a id="gmail-dispatch-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@greenglorytechnologies.com" target="_blank" rel="noopener noreferrer" onclick="updateSpecificationDocument()" class="py-2.5 px-4 bg-white hover:bg-vellum text-ink border border-hairline hover:border-slate-300 text-xs font-mono font-medium text-center transition flex items-center justify-center">
+                                        Open in Gmail &rarr;
+                                    </a>
+                                    <button type="button" id="copy-brief-btn" onclick="copyBriefAndEmail()" class="py-2.5 px-4 bg-white hover:bg-vellum text-ink border border-hairline hover:border-slate-300 text-xs font-mono font-medium text-center transition cursor-pointer">
+                                        Copy Brief &amp; Email
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Confirmation Panel (Shown after clicking Primary Send Button) -->
+                            <div id="send-confirmation-panel" class="hidden border border-forest-border bg-forest-tint p-4 space-y-2.5">
+                                <div class="flex items-center justify-between text-xs font-mono">
+                                    <span class="font-semibold text-forest">BRIEF PREPARED FOR DISPATCH</span>
+                                    <span class="text-ink">sales@greenglorytechnologies.com</span>
+                                </div>
+                                <p class="text-xs text-slateBody leading-relaxed">
+                                    Your default email client has been opened with the formatted brief. If your browser does not have a mail handler configured, click <strong>Open in Gmail</strong> or <strong>Copy Brief &amp; Email</strong> above to send directly.
+                                </p>
+                            </div>
+                        </form>
+
+                        <!-- TAB 2: LIVE SPECIFICATION DOCUMENT PREVIEW -->
+                        <div id="brief-preview-panel" class="hidden p-6 sm:p-8 space-y-5">
+                            <div class="border border-hairline bg-vellum p-5">
+                                <div class="flex flex-wrap items-center justify-between gap-2 pb-3 mb-3 border-b border-hairline text-[11px] font-mono">
+                                    <span class="font-semibold text-ink">DOCUMENT // DATASET SPECIFICATION BRIEF</span>
+                                    <span class="text-forest">TO: sales@greenglorytechnologies.com</span>
+                                </div>
+                                <pre id="tab-spec-text" class="text-xs font-mono text-ink whitespace-pre-wrap leading-relaxed overflow-x-auto"></pre>
+                            </div>
+
+                            <div class="grid sm:grid-cols-3 gap-2.5">
+                                <button type="button" onclick="triggerMailtoDispatch()" class="py-3 px-4 bg-forest hover:bg-forest-hover text-white text-xs font-medium text-center transition cursor-pointer">
+                                    Send via Mail App &rarr;
+                                </button>
+                                <a id="preview-gmail-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@greenglorytechnologies.com" target="_blank" rel="noopener noreferrer" class="py-3 px-4 bg-white hover:bg-vellum text-ink border border-hairline text-xs font-mono font-medium text-center transition">
+                                    Open in Gmail &rarr;
+                                </a>
+                                <button type="button" onclick="copyBriefAndEmail()" class="py-3 px-4 bg-white hover:bg-vellum text-ink border border-hairline text-xs font-mono font-medium text-center transition cursor-pointer">
+                                    Copy Brief &amp; Email
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 7. FOOTER & FORMAL CAD TITLE BLOCK -->
+    <footer id="contact" class="bg-white border-t border-hairline">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14">
+            <div class="text-[11px] font-mono font-semibold text-slateBody uppercase tracking-widest mb-5">
+                TITLE BLOCK // CORPORATE DIRECTORY
+            </div>
+
+            <!-- 4-Column Formal CAD Title Block -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-hairline border border-hairline">
+                <!-- Company -->
+                <div class="bg-white p-6 space-y-2">
+                    <div class="text-[10px] font-mono font-semibold text-slateBody uppercase tracking-wider">COMPANY</div>
+                    <div class="text-base font-bold text-ink">Green Glory Technologies</div>
+                    <p class="text-xs sm:text-[13px] text-slateBody leading-relaxed">
+                        Fabrication &amp; manufacturing data for AI training
+                    </p>
+                    <div class="pt-1">
+                        <a href="https://greenglorytechnologies.com" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-forest hover:underline">
+                            https://greenglorytechnologies.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="bg-white p-6 space-y-2">
+                    <div class="text-[10px] font-mono font-semibold text-slateBody uppercase tracking-wider">CONTACT</div>
+                    <div class="text-base font-bold text-ink">Santhosh Chandrasekar</div>
+                    <div class="space-y-1 text-xs font-mono">
+                        <div>
+                            <a href="mailto:sales@greenglorytechnologies.com" class="text-forest font-semibold hover:underline break-all">
+                                sales@greenglorytechnologies.com
+                            </a>
+                        </div>
+                        <div>
+                            <a href="tel:+13512287359" class="text-ink hover:text-forest">+1 351 228 7359</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Head Office -->
+                <div class="bg-white p-6 space-y-2">
+                    <div class="text-[10px] font-mono font-semibold text-slateBody uppercase tracking-wider">HEAD OFFICE</div>
+                    <div class="text-base font-bold text-ink">Chennai, India</div>
+                    <p class="text-xs sm:text-[13px] text-slateBody leading-relaxed">
+                        Manufacturing engineering, shop-floor data sourcing &amp; quality assurance.
+                    </p>
+                </div>
+
+                <!-- Office -->
+                <div class="bg-white p-6 space-y-2">
+                    <div class="text-[10px] font-mono font-semibold text-slateBody uppercase tracking-wider">OFFICE</div>
+                    <div class="text-base font-bold text-ink">Fremont, California</div>
+                    <p class="text-xs sm:text-[13px] text-slateBody leading-relaxed">
+                        AI lab partnerships, NDA sample governance &amp; licensing.
+                    </p>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark-950 border-t border-gray-800 py-12 text-sm text-gray-400">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold">N</div>
-                <span class="font-bold text-white">NexusData AI Corporation</span>
-            </div>
-            <div class="flex items-center space-x-6 text-xs">
-                <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                <a href="#" class="hover:text-white transition">Chain of Custody Terms</a>
-                <a href="#" class="hover:text-white transition">PII Sanitization Standard</a>
-                <a href="#" class="hover:text-white transition">API Documentation</a>
-            </div>
-            <div class="text-xs text-gray-500">
-                &copy; 2026 NexusData AI. All rights reserved.
+        <!-- Bottom CAD Border Strip -->
+        <div class="bg-vellum border-t border-hairline text-[11px] font-mono text-slateBody">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3">
+                <div class="flex flex-wrap items-center gap-2.5 sm:gap-4">
+                    <span class="font-semibold text-ink">TOLERANCE UNLESS OTHERWISE SPECIFIED: TO YOUR BRIEF</span>
+                    <span class="text-slate-300">|</span>
+                    <span>DO NOT SCALE</span>
+                    <span class="text-slate-300">|</span>
+                    <span class="font-semibold text-forest">DATASET: SPECIFY IT</span>
+                </div>
+                <div>
+                    &copy; 2026 Green Glory Technologies
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- MODAL POPUP SYSTEM -->
-    <div id="app-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-        <div class="glass-card rounded-2xl max-w-lg w-full p-6 border border-gray-700 relative animate-scale-in">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            
-            <div id="modal-content-area" class="space-y-4">
-                <!-- Dynamically populated -->
-            </div>
-        </div>
+    <!-- Subtle Toast Notification -->
+    <div id="toast-notification" class="fixed bottom-5 right-5 z-50 hidden bg-ink text-white px-4 py-3 text-xs font-mono shadow-lg flex items-center space-x-2.5">
+        <span class="w-1.5 h-1.5 bg-emerald-400 inline-block"></span>
+        <span id="toast-message">Copied to clipboard</span>
     </div>
 
-    <!-- JavaScript Application Logic -->
+    <!-- INTERACTIVE LOGIC -->
     <script>
-        // Filter Datasets
-        function filterDatasets(category) {
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-brand-600', 'text-white');
-                btn.classList.add('bg-dark-700', 'text-gray-300');
-            });
-            event.target.classList.remove('bg-dark-700', 'text-gray-300');
-            event.target.classList.add('bg-brand-600', 'text-white');
+        const SALES_EMAIL = 'sales@greenglorytechnologies.com';
+        let activeSpecimenDomain = 'welding';
+        let annotationMode = 'labelled'; // 'labelled' | 'raw'
+        let selectedDataBasis = 'Real';
+        let formattedSubject = '';
+        let formattedBody = '';
 
-            const cards = document.querySelectorAll('#dataset-grid > div');
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
+        // 1. Mobile Navigation Drawer
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const iconMenuOpen = document.getElementById('icon-menu-open');
+        const iconMenuClose = document.getElementById('icon-menu-close');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const opening = mobileDrawer.classList.contains('hidden');
+                mobileDrawer.classList.toggle('hidden', !opening);
+                iconMenuOpen.classList.toggle('hidden', opening);
+                iconMenuClose.classList.toggle('hidden', !opening);
+            });
+        }
+
+        document.querySelectorAll('.mobile-nav-item').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.add('hidden');
+                iconMenuOpen.classList.remove('hidden');
+                iconMenuClose.classList.add('hidden');
+            });
+        });
+
+        // 2. Hero Engineering Specimen Plate Data & State
+        const specimenConfigs = {
+            castings: {
+                caption: 'DWG-01 // FOUNDRY CASTING SECTION',
+                standard: 'ASTM E446',
+                labelledJson: `{
+  "domain": "01_CASTINGS_AND_FOUNDRY",
+  "labels": ["SHRINKAGE_POROSITY", "GAS_INCLUSION"],
+  "process": "DUCTILE_IRON · POUR_1420C",
+  "qa_signoff": "FOUNDRY_ENGINEER_VERIFIED"
+}`,
+                rawJson: `{
+  "domain": "01_CASTINGS_AND_FOUNDRY",
+  "artifact": "RAW_CASTING_CROSS_SECTION",
+  "annotation_layer": "HIDDEN (TOGGLE SPEC VIEW)",
+  "status": "AWAITING_CLIENT_TAXONOMY"
+}`
+            },
+            welding: {
+                caption: 'DWG-02 // FILLET WELD T-JOINT CROSS-SECTION',
+                standard: 'ISO 5817-B',
+                labelledJson: `{
+  "domain": "02_FABRICATION_AND_WELDING",
+  "labels": ["FILLET_WELD", "TOE_UNDERCUT_0.22MM"],
+  "modalities": ["RGB_MACRO", "WELD_LOG", "CAD_REF"],
+  "qa_signoff": "MECHANICAL_ENGINEER_VERIFIED"
+}`,
+                rawJson: `{
+  "domain": "02_FABRICATION_AND_WELDING",
+  "artifact": "RAW_GMAW_T_JOINT_SPECIMEN",
+  "annotation_layer": "HIDDEN (TOGGLE SPEC VIEW)",
+  "status": "AWAITING_CLIENT_TAXONOMY"
+}`
+            },
+            cad: {
+                caption: 'DWG-03 // ORTHOGRAPHIC PRINT & GD&T FRAME',
+                standard: 'ASME Y14.5',
+                labelledJson: `{
+  "domain": "03_DESIGN_CAD_AND_DRAWINGS",
+  "extracted_gdt": "TRUE_POSITION_Ø0.05_A_B_C",
+  "paired_files": ["2D_PRINT.PDF", "PART_REV_C.STEP"],
+  "qa_signoff": "DESIGN_ENGINEER_VERIFIED"
+}`,
+                rawJson: `{
+  "domain": "03_DESIGN_CAD_AND_DRAWINGS",
+  "artifact": "UNPARSED_2D_ENGINEERING_DRAWING",
+  "annotation_layer": "HIDDEN (TOGGLE SPEC VIEW)",
+  "status": "AWAITING_CLIENT_TAXONOMY"
+}`
+            },
+            machining: {
+                caption: 'DWG-04 // CNC TURNED SHAFT & CMM PROBE',
+                standard: 'ISO 1302 · FAI',
+                labelledJson: `{
+  "domain": "04_MACHINING_INSPECTION_QUALITY",
+  "cmm_measure": "Ø42.004MM [TOLERANCE_PASS]",
+  "surface_finish": "Ra_1.6_UM",
+  "qa_signoff": "METROLOGY_ENGINEER_VERIFIED"
+}`,
+                rawJson: `{
+  "domain": "04_MACHINING_INSPECTION_QUALITY",
+  "artifact": "RAW_CNC_SHAFT_INSPECTION_CAPTURE",
+  "annotation_layer": "HIDDEN (TOGGLE SPEC VIEW)",
+  "status": "AWAITING_CLIENT_TAXONOMY"
+}`
+            }
+        };
+
+        function renderSpecimenPlate() {
+            const config = specimenConfigs[activeSpecimenDomain];
+            if (!config) return;
+
+            // Update Tabs
+            document.querySelectorAll('.spec-tab').forEach(tab => {
+                tab.classList.remove('bg-white', 'text-forest', 'font-semibold', 'border-b-2', 'border-forest');
+                tab.classList.add('bg-vellum', 'text-slateBody');
+            });
+            const currentTab = document.getElementById('spec-tab-' + activeSpecimenDomain);
+            if (currentTab) {
+                currentTab.classList.remove('bg-vellum', 'text-slateBody');
+                currentTab.classList.add('bg-white', 'text-forest', 'font-semibold', 'border-b-2', 'border-forest');
+            }
+
+            // Show active SVG schematic
+            ['castings', 'welding', 'cad', 'machining'].forEach(key => {
+                const svg = document.getElementById('specimen-svg-' + key);
+                if (svg) svg.classList.toggle('hidden', key !== activeSpecimenDomain);
+            });
+
+            // Toggle Annotation Layer visibility inside all SVGs
+            const isLabelled = annotationMode === 'labelled';
+            document.querySelectorAll('.annotation-overlay').forEach(layer => {
+                layer.style.display = isLabelled ? 'inline' : 'none';
+            });
+
+            // Update Toggle Button States
+            const rawBtn = document.getElementById('toggle-raw');
+            const labelledBtn = document.getElementById('toggle-labelled');
+            if (isLabelled) {
+                labelledBtn.classList.add('bg-forest', 'text-white', 'font-medium');
+                labelledBtn.classList.remove('text-slateBody');
+                rawBtn.classList.remove('bg-forest', 'text-white', 'font-medium');
+                rawBtn.classList.add('text-slateBody');
+            } else {
+                rawBtn.classList.add('bg-forest', 'text-white', 'font-medium');
+                rawBtn.classList.remove('text-slateBody');
+                labelledBtn.classList.remove('bg-forest', 'text-white', 'font-medium');
+                labelledBtn.classList.add('text-slateBody');
+            }
+
+            // Update Caption, Standard & JSON Readout
+            document.getElementById('specimen-caption').textContent = config.caption;
+            document.getElementById('specimen-standard').textContent = config.standard;
+            document.getElementById('specimen-state-tag').textContent = isLabelled ? 'STATE: ENGINEER_VERIFIED' : 'STATE: RAW_SHOP_ARTIFACT';
+            document.getElementById('specimen-json-readout').textContent = isLabelled ? config.labelledJson : config.rawJson;
+        }
+
+        function selectSpecimenDomain(domainKey) {
+            activeSpecimenDomain = domainKey;
+            renderSpecimenPlate();
+        }
+
+        function setAnnotationMode(mode) {
+            annotationMode = mode;
+            renderSpecimenPlate();
+        }
+
+        // 3. Domain Chip Selection & Section 01 "Specify this domain →" Integration
+        function toggleDomainSelection(btnEl) {
+            const isSelected = btnEl.classList.contains('selected');
+            const badge = btnEl.querySelector('.chip-check');
+
+            if (isSelected) {
+                btnEl.classList.remove('selected', 'border-forest', 'bg-forest-tint', 'font-semibold', 'text-forest');
+                btnEl.classList.add('border-hairline', 'bg-white', 'font-medium', 'text-ink');
+                if (badge) {
+                    badge.textContent = 'SELECT';
+                    badge.classList.remove('text-forest');
+                    badge.classList.add('text-slate-400');
+                }
+            } else {
+                btnEl.classList.add('selected', 'border-forest', 'bg-forest-tint', 'font-semibold', 'text-forest');
+                btnEl.classList.remove('border-hairline', 'bg-white', 'font-medium', 'text-ink');
+                if (badge) {
+                    badge.textContent = 'ACTIVE';
+                    badge.classList.remove('text-slate-400');
+                    badge.classList.add('text-forest');
+                }
+            }
+            updateSpecificationDocument();
+        }
+
+        function specifyDomainAndScroll(domainName) {
+            // Select the requested domain chip if not already selected
+            document.querySelectorAll('.domain-chip').forEach(chip => {
+                if (chip.getAttribute('data-domain') === domainName && !chip.classList.contains('selected')) {
+                    toggleDomainSelection(chip);
                 }
             });
+            updateSpecificationDocument();
+            const target = document.getElementById('specifications');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            showToast('Selected: ' + domainName);
         }
 
-        // Interactive Inspector Mode
-        function setInspectorMode(mode) {
-            const rawTab = document.getElementById('tab-raw');
-            const piiTab = document.getElementById('tab-pii');
-            const piiIcon = document.getElementById('icon-pii');
-            const inspectorImage = document.getElementById('inspector-image');
-            const badgeStatus = document.getElementById('badge-status');
+        // 4. Data Basis Segmented Radio Control
+        function selectDataBasis(btnEl) {
+            selectedDataBasis = btnEl.getAttribute('data-basis') || 'Real';
+            document.querySelectorAll('.basis-btn').forEach(btn => {
+                btn.classList.remove('bg-forest', 'text-white', 'font-semibold');
+                btn.classList.add('bg-white', 'text-slateBody');
+            });
+            btnEl.classList.remove('bg-white', 'text-slateBody');
+            btnEl.classList.add('bg-forest', 'text-white', 'font-semibold');
+            updateSpecificationDocument();
+        }
 
-            if (mode === 'raw') {
-                rawTab.classList.add('border-brand-500', 'bg-brand-600/15');
-                rawTab.classList.remove('border-gray-800', 'bg-dark-800');
-                piiTab.classList.remove('border-brand-500', 'bg-brand-600/15');
-                piiTab.classList.add('border-gray-800', 'bg-dark-800');
-                piiIcon.className = 'fa-solid fa-circle text-gray-700';
-                
-                inspectorImage.src = 'https://placehold.co/800x450/12141c/818cf8?text=RAW+4K+Tape+Peeling+Action+-+Uncompressed';
-                badgeStatus.innerText = 'RAW PHYSICS VERIFIED';
-                badgeStatus.className = 'px-2 py-0.5 rounded bg-brand-500/20 text-brand-400 font-mono text-[10px]';
+        // 5. Tab & Accordion Toggles inside Brief Configurator
+        function switchBriefTab(tabName) {
+            const formPanel = document.getElementById('brief-form-panel');
+            const previewPanel = document.getElementById('brief-preview-panel');
+            const formTabBtn = document.getElementById('brief-tab-form');
+            const previewTabBtn = document.getElementById('brief-tab-preview');
+
+            updateSpecificationDocument();
+
+            if (tabName === 'preview') {
+                formPanel.classList.add('hidden');
+                previewPanel.classList.remove('hidden');
+                previewTabBtn.classList.add('bg-forest', 'text-white', 'font-medium');
+                previewTabBtn.classList.remove('text-slateBody');
+                formTabBtn.classList.remove('bg-forest', 'text-white', 'font-medium');
+                formTabBtn.classList.add('text-slateBody');
             } else {
-                piiTab.classList.add('border-brand-500', 'bg-brand-600/15');
-                piiTab.classList.remove('border-gray-800', 'bg-dark-800');
-                rawTab.classList.remove('border-brand-500', 'bg-brand-600/15');
-                rawTab.classList.add('border-gray-800', 'bg-dark-800');
-                piiIcon.className = 'fa-solid fa-circle-check text-emerald-400';
-
-                inspectorImage.src = 'https://placehold.co/800x450/12141c/10b981?text=EgoBlur+Sanitized+-+Faces+Redacted+GDPR+Clean';
-                badgeStatus.innerText = 'PII SCRUBBED & COMPLIANT';
-                badgeStatus.className = 'px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-mono text-[10px]';
+                previewPanel.classList.add('hidden');
+                formPanel.classList.remove('hidden');
+                formTabBtn.classList.add('bg-forest', 'text-white', 'font-medium');
+                formTabBtn.classList.remove('text-slateBody');
+                previewTabBtn.classList.remove('bg-forest', 'text-white', 'font-medium');
+                previewTabBtn.classList.add('text-slateBody');
             }
         }
 
-        // Modal Management (No alert() or confirm() used!)
-        function openModal(type, datasetName = '') {
-            const modal = document.getElementById('app-modal');
-            const contentArea = document.getElementById('modal-content-area');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
+        function toggleInlineSpecDrawer() {
+            const drawer = document.getElementById('inline-spec-drawer');
+            const indicator = document.getElementById('inline-drawer-indicator');
+            const isHidden = drawer.classList.contains('hidden');
+            drawer.classList.toggle('hidden', !isHidden);
+            indicator.textContent = isHidden ? '− COLLAPSE' : '+ EXPAND';
+        }
 
-            if (type === 'custom-request') {
-                contentArea.innerHTML = `
-                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-file-contract text-brand-400 mr-2"></i> Request Dataset License</h3>
-                    <p class="text-xs text-gray-400 mb-4">Complete your enterprise procurement details for: <strong class="text-white">${datasetName || 'General Catalog'}</strong></p>
-                    <form onsubmit="handleModalSubmit(event)" class="space-y-4">
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-300 mb-1">Work Email</label>
-                            <input type="email" required placeholder="engineer@ai-lab.com" class="w-full bg-dark-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-500">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-300 mb-1">Intended Use Case</label>
-                            <select class="w-full bg-dark-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-500">
-                                <option>Foundational Text-to-Video Model Training (Sora / Veo style)</option>
-                                <option>Embodied AI & Robotics Navigation</option>
-                                <option>Multimodal Audio-Visual Alignment</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-300 mb-1">Notes / Sample Request</label>
-                            <textarea rows="3" placeholder="Specify if you require sample JSON annotations or raw ProRes..." class="w-full bg-dark-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-500"></textarea>
-                        </div>
-                        <button type="submit" class="w-full py-3 rounded-xl font-semibold text-white bg-brand-600 hover:bg-brand-500 shadow-lg transition text-sm">
-                            Submit License Request
-                        </button>
-                    </form>
-                `;
-            } else if (type === 'upload-modal') {
-                contentArea.innerHTML = `
-                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-cloud-arrow-up text-emerald-400 mr-2"></i> Creator Ingestion Portal</h3>
-                    <p class="text-xs text-gray-400 mb-4">Submit your raw footage or collection metadata for chain-of-permission verification.</p>
-                    <form onsubmit="handleModalSubmit(event)" class="space-y-4">
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-300 mb-1">Creator / Studio Name</label>
-                            <input type="text" required placeholder="Precision Optics Media" class="w-full bg-dark-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-500">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-300 mb-1">Data Category</label>
-                            <select class="w-full bg-dark-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-500">
-                                <option>Masking Tape Peeling / Physical State-Change</option>
-                                <option>Egocentric First-Person Tools & Hands</option>
-                                <option>Synchronized Multimodal Foley Audio</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-300 mb-1">Estimated Volume & Format</label>
-                            <input type="text" required placeholder="e.g., 50GB ProRes RAW" class="w-full bg-dark-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-500">
-                        </div>
-                        <div class="flex items-center space-x-2 text-xs text-gray-300">
-                            <input type="checkbox" required class="rounded bg-dark-900 border-gray-700 text-brand-600">
-                            <span>I confirm all data is PII scrubbed and free of third-party copyright.</span>
-                        </div>
-                        <button type="submit" class="w-full py-3 rounded-xl font-semibold text-white bg-emerald-600 hover:bg-emerald-500 shadow-lg transition text-sm">
-                            Initialize Ingestion Pipeline
-                        </button>
-                    </form>
-                `;
+        // 6. Live Specification Document Formatter & Dispatch Link Synchronizer
+        function updateSpecificationDocument() {
+            const selectedDomains = Array.from(document.querySelectorAll('.domain-chip.selected'))
+                .map(el => el.getAttribute('data-domain'));
+            const domainList = selectedDomains.length > 0 ? selectedDomains.join(', ') : 'To be specified';
+
+            const partFamily = document.getElementById('field-part-family').value.trim() || '[Specify part, process, or product family]';
+            const taxonomy = document.getElementById('field-taxonomy').value.trim() || '[Specify defect types & labelling taxonomy]';
+            const format = document.getElementById('field-format').value;
+            const volume = document.getElementById('field-volume').value.trim() || 'To be agreed per brief';
+            const problem = document.getElementById('field-problem').value.trim() || '[Describe model objective & acceptance criteria]';
+            const senderName = document.getElementById('field-sender-name').value.trim() || '[Sender Name]';
+            const senderEmail = document.getElementById('field-sender-email').value.trim() || '[Work Email]';
+            const senderCompany = document.getElementById('field-sender-company').value.trim() || '[Company]';
+            const ndaSample = document.getElementById('field-nda').checked ? 'Yes — Small sample under NDA requested first' : 'No — Direct full specification review';
+
+            formattedSubject = `AI Training Dataset Brief — ${senderCompany} (${domainList})`;
+
+            formattedBody = [
+                `TO: Santhosh Chandrasekar <${SALES_EMAIL}>`,
+                `SUBJECT: ${formattedSubject}`,
+                `SHEET: Green Glory Technologies — Data Sheet REV. C`,
+                `------------------------------------------------------------`,
+                `1. SENDER DETAILS`,
+                `   Name         : ${senderName}`,
+                `   Company      : ${senderCompany}`,
+                `   Work Email   : ${senderEmail}`,
+                ``,
+                `2. DATASET SPECIFICATION PARAMETERS`,
+                `   Domain(s)    : ${domainList}`,
+                `   Data Basis   : ${selectedDataBasis}`,
+                `   Part/Process : ${partFamily}`,
+                `   Taxonomy     : ${taxonomy}`,
+                `   Format       : ${format}`,
+                `   Volume/Sched : ${volume}`,
+                `   NDA Sample   : ${ndaSample}`,
+                ``,
+                `3. MODEL PROBLEM & ACCEPTANCE CRITERIA`,
+                `   ${problem}`,
+                `------------------------------------------------------------`,
+                `Note: Volume, format, rights basis and price are set per brief and agreed before work starts.`
+            ].join('\n');
+
+            const inlineEl = document.getElementById('inline-spec-text');
+            const tabEl = document.getElementById('tab-spec-text');
+            if (inlineEl) inlineEl.textContent = formattedBody;
+            if (tabEl) tabEl.textContent = formattedBody;
+
+            const encodedSubject = encodeURIComponent(formattedSubject);
+            const encodedBody = encodeURIComponent(formattedBody);
+            const gmailHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${SALES_EMAIL}&su=${encodedSubject}&body=${encodedBody}`;
+
+            const gmailBtn = document.getElementById('gmail-dispatch-link');
+            const previewGmailBtn = document.getElementById('preview-gmail-link');
+            if (gmailBtn) gmailBtn.href = gmailHref;
+            if (previewGmailBtn) previewGmailBtn.href = gmailHref;
+        }
+
+        // 7. Primary Send Handlers (mailto:sales@greenglorytechnologies.com)
+        function triggerMailtoDispatch() {
+            updateSpecificationDocument();
+            const mailtoHref = `mailto:${SALES_EMAIL}?subject=${encodeURIComponent(formattedSubject)}&body=${encodeURIComponent(formattedBody)}`;
+            window.location.href = mailtoHref;
+        }
+
+        async function handleSendBrief(event) {
+            event.preventDefault();
+            updateSpecificationDocument();
+            const form = event.target;
+            const honey = document.getElementById('field-hp');
+            if (honey && honey.value) return;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalHtml = submitBtn ? submitBtn.innerHTML : '';
+            if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = '<span>Sending brief...</span>'; }
+            const panel = document.getElementById('send-confirmation-panel');
+            const panelTitle = panel ? panel.querySelector('span.font-semibold') : null;
+            const panelText = panel ? panel.querySelector('p') : null;
+            try {
+                const res = await fetch('https://formsubmit.co/ajax/' + SALES_EMAIL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        name: document.getElementById('field-sender-name').value.trim(),
+                        email: document.getElementById('field-sender-email').value.trim(),
+                        company: document.getElementById('field-sender-company').value.trim(),
+                        _replyto: document.getElementById('field-sender-email').value.trim(),
+                        _subject: formattedSubject,
+                        _template: 'box',
+                        _captcha: 'false',
+                        brief: formattedBody
+                    })
+                });
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok || String(data.success) === 'false') throw new Error(data.message || 'Send failed');
+                if (panelTitle) panelTitle.textContent = 'BRIEF RECEIVED';
+                if (panelText) panelText.textContent = 'Thank you. Your brief has been sent to our sales team, and we will reply to the work email you provided, usually within one business day.';
+                if (panel) panel.classList.remove('hidden');
+                showToast('Brief sent to ' + SALES_EMAIL);
+                form.querySelectorAll('input[type="text"], input[type="email"], textarea').forEach(el => { if (el.id !== 'field-hp') el.value = ''; });
+                updateSpecificationDocument();
+            } catch (err) {
+                if (panelTitle) panelTitle.textContent = 'COULD NOT SEND AUTOMATICALLY';
+                if (panelText) panelText.textContent = 'Something went wrong sending your brief. Please use Open in Gmail or Copy Brief & Email above, or write to ' + SALES_EMAIL + ' directly.';
+                if (panel) panel.classList.remove('hidden');
+                showToast('Could not send. Please email ' + SALES_EMAIL);
+            } finally {
+                if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalHtml; }
             }
         }
 
-        function closeModal() {
-            const modal = document.getElementById('app-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
+        // 8. iFrame-Safe Clipboard Copy Utilities
+        function safeCopyToClipboard(text) {
+            const tempArea = document.createElement('textarea');
+            tempArea.value = text;
+            tempArea.style.position = 'fixed';
+            tempArea.style.left = '-9999px';
+            tempArea.style.top = '0';
+            document.body.appendChild(tempArea);
+            tempArea.focus();
+            tempArea.select();
+            try {
+                document.execCommand('copy');
+            } catch (e) {
+                // Silent fallback
+            }
+            document.body.removeChild(tempArea);
         }
 
-        function handleModalSubmit(event) {
-            event.preventDefault();
-            const contentArea = document.getElementById('modal-content-area');
-            contentArea.innerHTML = `
-                <div class="text-center py-8 space-y-4">
-                    <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center mx-auto text-2xl">
-                        <i class="fa-solid fa-check"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white">Submission Successful!</h3>
-                    <p class="text-xs text-gray-400">Our data procurement and provenance team will review your request and reach out within 2 hours with secure sample credentials.</p>
-                    <button onclick="closeModal()" class="px-6 py-2.5 rounded-xl text-xs font-semibold bg-dark-700 hover:bg-dark-600 text-white transition">
-                        Close Window
-                    </button>
-                </div>
-            `;
+        function copyBriefAndEmail() {
+            updateSpecificationDocument();
+            safeCopyToClipboard(`Recipient: ${SALES_EMAIL}\n\n${formattedBody}`);
+            const btn = document.getElementById('copy-brief-btn');
+            if (btn) {
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied Brief & Email ✓';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2400);
+            }
+            showToast('Copied brief & ' + SALES_EMAIL);
         }
 
-        function handleEnterpriseSubmit(event) {
-            event.preventDefault();
-            alertCustom("Thank you! Your enterprise procurement inquiry has been successfully transmitted to our AI data licensing team.");
+        function copyEmailOnly() {
+            safeCopyToClipboard(SALES_EMAIL);
+            showToast('Copied ' + SALES_EMAIL);
         }
 
-        function alertCustom(message) {
-            const modal = document.getElementById('app-modal');
-            const contentArea = document.getElementById('modal-content-area');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            contentArea.innerHTML = `
-                <div class="text-center py-6 space-y-4">
-                    <div class="w-12 h-12 rounded-full bg-brand-600/20 text-brand-400 border border-brand-500/40 flex items-center justify-center mx-auto text-xl">
-                        <i class="fa-solid fa-bell"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">Notice</h3>
-                    <p class="text-xs text-gray-300 leading-relaxed">${message}</p>
-                    <button onclick="closeModal()" class="px-6 py-2 rounded-xl text-xs font-semibold bg-brand-600 text-white">OK</button>
-                </div>
-            `;
+        // 9. Non-Intrusive Toast Notification
+        let toastTimeout = null;
+        function showToast(message) {
+            const toast = document.getElementById('toast-notification');
+            const msgEl = document.getElementById('toast-message');
+            if (!toast || !msgEl) return;
+            msgEl.textContent = message;
+            toast.classList.remove('hidden');
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 2800);
         }
 
-        function openDatasetDetail(title) {
-            openModal('custom-request', title);
-        }
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSpecimenPlate();
+            updateSpecificationDocument();
+        });
     </script>
 </body>
 </html>
